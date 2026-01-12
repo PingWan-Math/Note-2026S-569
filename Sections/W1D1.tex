@@ -17,12 +17,82 @@ In this course we will explore the relationship between aspherical spaces and (d
     If \(X\)  is a connected space such that \(\tilde X\) is contractible, then we say \(X\) is a \emph{\(K(\pi,1)\)} (i.e. \(K(\pi_1(X),1)\)). We call such \(X\) \emph{aspherical}.
 \end{definition}
 
-\begin{theorem}[Hatcher 1.B.7-9]
+\begin{theorem}[{\cite[Theorem 1.B.7-9]{hatcher_algebraic_2001}}]
     \label{thm:existence-uniqueness-of-KG1}
     For any group \(G\), there exists a (CW) \(K(G,1)\) which is unique up to homotopy equivalence.
-    In fact, for any two groups \(G,H\), there exists a bijection
-    \[ 
-        \hom (G,H) \xleftrightarrow{}
+    In fact, for any two groups \(G,H\), there exists a bijection 
+    \[
+        \hom (G,H) \xleftrightarrow{} \{ \text{based maps } K(G,1) \to K(H,1) \} / \text{based homotopy}
     \]
 \end{theorem}
 
+
+Let \(X\) be a space and \(x_0\) a point in \(X\).
+Recall that \(\pi_0(X)\) represents the path components of space \(X\). For \(n\geq 1\), \(\pi_n(X,x_0)\) is the group of based homotopy classes of maps \((\mb{S}^n , \star) \to (X,x_0)\).
+
+For \(n\geq 2\), any map \((\mb{S}^n , \star) \to (X,x_0)\) lifts to \((\mb{S}^n , \star) \to (\tilde X, \tilde x_0)\) (Since \(pi_1(\mb{S}^n ,\star)\) is trivial). If \(X\) is aspherical, then \((\mb{S}^n , \star) \to (\tilde X, \tilde x_0)\) is null-homotopy. Hence \(\pi_n(X,x_0) =0\).                   
+
+\begin{theorem}[{\cite[Theorem 4.5]{hatcher_algebraic_2001}}]
+    \label{thm:aspherical-criterion-trivial-homotopy-group}
+    A CW complex \(X\) is aspherical if and only if it's connected and for all \(n\geq 2\), \(\pi_n(X,x_0)=0\).
+\end{theorem}
+
+\begin{example}[Aspherical Spaces]
+    \label{ex:aspherical-spaces}
+
+    \begin{enumerate}
+        \item A point.
+        \item \(\mb S^1\).
+        \item Products of aspherical spaces (corresponding to direct products of groups).
+        \item Wedges of aspherical spaces (corresponding to free products of groups).
+        \item Graphs (1-dimensional CW complexes).
+        \item Closed orientable surfaces if genus \(\geq 1\).
+        \item Complete Riemannian manifolds of non-positive sectional curvature (Cartan-Hadamard theorem).
+        \item Complete locally \CATz spaces.
+    \end{enumerate}
+\end{example}
+
+\begin{example}[Non-aspherical Spaces]
+    Connect sums typically produce non-aspherical spaces.
+\end{example}
+
+\begin{question}
+\begin{itemize}
+    \item What kind of \(K(G,1)\) spaces does [insert any interesting group] have?
+    \item For [insert any interesting group], which \(K(G,1)\) is ``better''?
+    \item What do properties of \(K(G,1)\) say about \(G\)?
+\end{itemize}
+\end{question}
+
+Below we list some sample early theorems without proof.
+
+\begin{theorem}
+    \label{thm:fg-criterion-KG1}
+    A group \(G\) is finitely generated if and only if \(G\) has a \(K(G,1)\) with a finite 1-skeleton.
+\end{theorem}
+
+\begin{theorem}
+    \label{thm:fp-criterion-KG1}
+     A group \(G\) is finitely presented if and only if \(G\) has a \(K(G,1)\) with a finite 2-skeleton.
+\end{theorem}
+
+\begin{theorem}
+    \label{thm:torsion-criterion-KG1}
+    If \(G\) has a finite-dimensional \(K(G,1)\), then it's torsion free.
+\end{theorem}
+
+Observe that those theorems all related to some sort of finiteness of \(K(G,1)\). We introduce some notions of finiteness below.
+
+\begin{definition}
+    \label{def:finite-type-KG1}
+    A group \(G\) is of \emph{type \(F_n\)} if it has a \(K(G,1)\) with finite \(n\)-skeleton.
+
+    A group \(G\) is of \emph{type \(F_\infty\)} if it's of type \(F_n\) for all \(n\).
+    
+    A group \(G\) is of \emph{type \(F\)} if it has a finite \(K(G,1)\).
+
+    A group \(G\) has \emph{finite geometric dimension} if it has a finite-dimensional \(K(G,1)\). The \emph{geometric dimension} is the minimal dimension of all of its \(K(G,1)\). 
+\end{definition}
+
+It is sometimes difficult to understand the \(K(G,1)\) of a group. We thus use multiple invariance to help determine those types. If \(G\) is a group and \(X\) is its \(K(G,1)\), then the algebraic topological invariance of \(X\) is invariant of \(G\). In particular, we look at the cohomology groups (with trivial coefficients):
+\[ H^*(G,\Z):= H^*(X,\Z) \]

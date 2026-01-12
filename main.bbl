@@ -1,3 +1,8 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{Hat01}
+
+\bibitem[Hat01]{hatcher_algebraic_2001}
+Allen Hatcher.
+\newblock {\em Algebraic Topology}.
+\newblock Cambridge university press, New York, 2001.
 
 \end{thebibliography}

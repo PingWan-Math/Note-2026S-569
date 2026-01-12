@@ -1,0 +1,55 @@
+
+# LaTeX intermediate files
+*.aux
+*.bcf
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.lol
+*.nav
+*.snm
+*.vrb
+*.idx
+*.ilg
+*.ind
+
+# Editor-specific files
+*.swp
+*.bak
+*~
+*.tmp
+*.backup
+*.synctex(busy)
+*.synctex.gz(busy)
+
+# Output directories (if you use a build system)
+build/
+out/
+latex.out/
+tmp/
+
+# VSC environment
+.vscode/
+
+
+# TeXShop / TeXworks / Overleaf metadata
+*.pdfsync
+*.texpadtmp
+*.exps
+*.lyx~
+*.tsd
+
+# Generated PDFs (optional — comment this out if you want to track final PDFs)
+*.pdf
+
+# OS-specific files
+.DS_Store
+Thumbs.db
