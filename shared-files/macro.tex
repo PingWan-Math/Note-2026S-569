@@ -1,0 +1,256 @@
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+%\usepackage [autostyle, english = american]{csquotes}
+%\MakeOuterQuote{"}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+
+%For Edit
+%\usepackage[letterpaper,top=0.5cm,bottom=0.5cm,left=0.5cm,right=0.5cm,marginparwidth=.0cm]{geometry}
+%For Proofread
+%\usepackage[letterpaper,top=3cm,bottom=3cm,left=4cm,right=4cm,marginparwidth=1.75cm]{geometry}
+
+
+%Toggle on to hide proofs
+%\usepackage{environ}
+%\NewEnviron{killcontents}{}
+%\let\proof\killcontents
+%\let\endproof\endkillcontents
+
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz-cd} 
+\usepackage{quiver}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{float}
+
+
+%%%%%%%%% ADD CREF AT LAST, ESPECIALLY AFTER HYPERREF
+\usepackage[capitalise]{cleveref}
+
+%Find entire Palate at: https://www.nordtheme.com/docs/colors-and-palettes
+%Polar Night
+\definecolor{Nord0}{HTML}{2e3440}
+
+%Snow Storm
+\definecolor{Nord4}{HTML}{d8dee9}
+
+%Frost
+\definecolor{Nord7}{HTML}{8fbcbb}%light green
+\definecolor{Nord8}{HTML}{88c0d0}%aqua
+\definecolor{Nord9}{HTML}{81a1c1}%lighter blue
+\definecolor{Nord10}{HTML}{5e81ac}%dark blue
+%Aurora
+\definecolor{Nord11}{HTML}{bf616a}%red
+\definecolor{Nord12}{HTML}{d08770}%orange
+\definecolor{Nord13}{HTML}{ebcb8b}%yellow
+\definecolor{Nord14}{HTML}{a3be8c} %green
+\definecolor{Nord15}{HTML}{b48ead} %pink
+
+
+% Nord theme
+% \setlength {\marginparwidth }{2cm}
+% \pagecolor{Nord0} %Set the background color
+% \color{Nord4} %Set the defaut word color.
+
+% Environments
+%Define environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{terminology}[theorem]{Terminology}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{hypotheses}[theorem]{Hypotheses}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{convention}[theorem]{Convention}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{remark*}{Remark}
+\newtheorem{claim}{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem{case}{Case}
+
+%Claim and Case Counters
+%\AtEndEnvironment{proof}{\setcounter{claim}{0}}
+%\AtEndEnvironment{proof}{\setcounter{case}{0}}
+%\AtEndEnvironment{proof}{\setcounter{equation}{0}}
+\numberwithin{equation}{subsection}
+
+% text commands
+%mathfonts
+\newcommand{\mc}{\mathcal}
+\newcommand{\mb}{\mathbb}
+\newcommand{\mf}{\mathfrak}
+\newcommand{\mbf}{\mathbf}
+\newcommand{\mrm}{\mathrm}
+\newcommand{\ms}{\mathscr}
+
+%Todo Styles
+\newcommand{\tofix}[2][]{\todo[inline, color=Nord11, #1]{#2}}  %This is for known math error. Fix ASAP!
+\setuptodonotes{inline, color=Nord13} %Problems that I can edit right now
+\newcommand{\tothink}[2][]{\todo[inline, color=Nord14, #1]{#2}} %Questions and ideas that I can work on offline.
+
+
+
+% % Citation Appendix
+% \NewBibliographyString{bywithappendix}
+% \DefineBibliographyStrings{english}{
+%   withappendix   = {appendix},
+%   withappendixs  = {appendix},
+%   bywithappendix = {with an appendix by},
+% }
+
+% blackboard bold for naturals, integers, etc.
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Gbb}{\mb{G}}
+\newcommand{\Hbb}{\mb{H}}
+\newcommand{\K}{\mathbb{K}}
+
+
+% section reference label
+\renewcommand{\sectionautorefname}{\S}
+
+
+% greek lower case
+\renewcommand{\a}{\alpha}
+\renewcommand{\b}{\beta}
+\newcommand{\g}{\gamma}
+\renewcommand{\d}{\delta}
+\newcommand{\e}{\varepsilon}
+\renewcommand{\l}{\lambda}
+\newcommand{\n}{\eta}
+\newcommand{\w}{\omega}
+\newcommand{\s}{\sigma}
+\newcommand{\vp}{\varphi}
+\renewcommand{\t}{\tau}
+\renewcommand{\th}{\theta}
+\newcommand{\z}{\zeta}
+\renewcommand{\k}{\kappa}
+
+% greek upper case
+\newcommand{\D}{\Delta}
+\renewcommand{\L}{\Lambda}
+\newcommand{\G}{\Gamma}
+\newcommand{\Om}{\Omega}
+
+
+\newcommand{\Acal}{\mc{A}}
+\newcommand{\Bcal}{\mc{B}}
+\newcommand{\Ccal}{\mc{C}}
+\newcommand{\Dcal}{\mc{D}}
+\newcommand{\Ecal}{\mc{E}}
+\newcommand{\Fcal}{\mc{F}}
+\newcommand{\Gcal}{\mc{G}}
+\newcommand{\Hcal}{\mc{H}}
+\newcommand{\Ical}{\mc{I}}
+\newcommand{\Jcal}{\mc{J}}
+\newcommand{\Kcal}{\mc{K}}
+\newcommand{\Lcal}{\mc{L}}
+\newcommand{\Mcal}{\mc{M}}
+\newcommand{\Ncal}{\mc{N}}
+\newcommand{\Ocal}{\mc{O}}
+\newcommand{\Pcal}{\mc{P}}
+\newcommand{\Qcal}{\mc{Q}}
+\newcommand{\Rcal}{\mc{R}}
+\newcommand{\Scal}{\mc{S}}
+\newcommand{\Tcal}{\mc{T}}
+\newcommand{\Ucal}{\mc{U}}
+\newcommand{\Vcal}{\mc{V}}
+\newcommand{\Wcal}{\mc{W}}
+\newcommand{\Xcal}{\mc{X}}
+\newcommand{\Ycal}{\mc{Y}}
+\newcommand{\Zcal}{\mc{Z}}
+
+
+%Misc
+\newcommand{\HL}{\{H_\lambda\}_{\lambda\in\Lambda}}
+\newcommand{\he}{\hookrightarrow_h }
+\newcommand{\gp}{( G,\Pcal )}
+\newcommand{\hd}{( H,\Dcal )}
+
+%Cayley graphs
+\newcommand{\GG}{\hat\G(G,\Pcal,X) }
+\newcommand{\GH}{\hat\G(H,\Dcal,Y) }
+\newcommand{\GGx}[1]{\hat\G(G,\Pcal,#1)}
+\newcommand{\GHx}[1]{\hat\G(H,\Dcal,#1)}
+
+\newcommand{\Gd}{\G(G,\Pcal\sqcup X)}
+\newcommand{\Hd}{\G(H,\Dcal\sqcup Y)}
+\newcommand{\Gdx}[1]{\G(G,\Pcal\sqcup #1)}
+\newcommand{\Hdx}[1]{\G(H,\Dcal\sqcup #1)}
+
+
+\newcommand{\Ghat}[3]{\hat\G(#1, #2,#3)}
+\newcommand{\Gdis}[3]{\G(#1, #2\sqcup#3)}
+
+
+% Operatornames
+\newcommand{\diam}{\text{diam}}
+\newcommand{\stab}[1]{\operatorname{Stab}({#1})}
+\newcommand{\stabg}[1]{\operatorname{Stab}_G({#1})}
+\newcommand{\stabh}[1]{\operatorname{Stab}_H({#1})}
+\newcommand{\hull}[1]{\operatorname{Hull}({#1})}
+
+\newcommand{\CAT} {\ensuremath{\operatorname{CAT}}}
+\newcommand{\CATz}{\CAT$(0)$ }
+
+%Symbols
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\renewcommand{\emptyset}{\varnothing}
+
+%Accents
+%\newcommand{\bbG}{\overline\overline{G}}
+%\newcommand{\bbX}{\overline\overline{X}}
+%\newcommand{\bbY}{\overline\overline{Y}}
+\renewcommand{\tilde}{\widetilde}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\bar}{\overline}
+\newcommand{\bbar}[1]{ \overline{\overline{#1}}}
+
+\newcommand{\Xtil}{\widetilde{X}}
+\newcommand{\Ytil}{\widetilde{Y}}
+
+\newcommand{\Xbar}{\overline{X}}
+\newcommand{\Ybar}{\overline{Y}}
+
+\newcommand{\rightQ}[2]{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}
+\newcommand{\leftQ}[2]{\left.\raisebox{-.2em}{$#2$}\middle\backslash\raisebox{.2em}{$#1$}\right.}
+\newcommand{\doubleQ}[3]{\left.\raisebox{-.1em}{$#3$}\middle\backslash \raisebox{.1em}{$#1$}\middle/\raisebox{-.1em}{$#2$}\right.}
+
+\newcommand{\Der}[2]{\frac{\operatorname{d}{#1}}{\operatorname{d}{#2}}}
+\newcommand{\PDer}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\InProd}[2]{\langle #1 , #2 \rangle}
+
+\newcommand{\Gprod}[3]{( #1 \mid #2 )_{#3}}
