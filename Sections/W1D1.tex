@@ -22,7 +22,7 @@ In this course we will explore the relationship between aspherical spaces and (d
     For any group \(G\), there exists a (CW) \(K(G,1)\) which is unique up to homotopy equivalence.
     In fact, for any two groups \(G,H\), there exists a bijection 
     \[
-        \hom (G,H) \xleftrightarrow{} \{ \text{based maps } K(G,1) \to K(H,1) \} / \text{based homotopy}
+        \Hom{G}{H}{} \xleftrightarrow{} \{ \text{based maps } K(G,1) \to K(H,1) \} / \text{based homotopy}
     \]
 \end{theorem}
 
@@ -76,10 +76,11 @@ Below we list some sample early theorems without proof.
      A group \(G\) is finitely presented if and only if \(G\) has a \(K(G,1)\) with a finite 2-skeleton.
 \end{theorem}
 
-\begin{theorem}
+\begin{restatable}{theorem}{TorsionCriterion}
     \label{thm:torsion-criterion-KG1}
-    If \(G\) has a finite-dimensional \(K(G,1)\), then it's torsion free.
-\end{theorem}
+    If \(G\) has non-trivial torsion, then there does not exist any finite-dimensional \(K(G,1)\). 
+\end{restatable}
+Another way to phrase \cref{thm:torsion-criterion-KG1} is: if \(G\) has a finite-dimensional \(K(G,1)\), then it's torsion free.
 
 Observe that those theorems all related to some sort of finiteness of \(K(G,1)\). We introduce some notions of finiteness below.
 
@@ -94,5 +95,5 @@ Observe that those theorems all related to some sort of finiteness of \(K(G,1)\)
     A group \(G\) has \emph{finite geometric dimension} if it has a finite-dimensional \(K(G,1)\). The \emph{geometric dimension} is the minimal dimension of all of its \(K(G,1)\). 
 \end{definition}
 
-It is sometimes difficult to understand the \(K(G,1)\) of a group. We thus use multiple invariance to help determine those types. If \(G\) is a group and \(X\) is its \(K(G,1)\), then the algebraic topological invariance of \(X\) is invariant of \(G\). In particular, we look at the cohomology groups (with trivial coefficients):
+It is sometimes difficult to understand the \(K(G,1)\) of a group. We thus use multiple invariance to help determine those types. If \(G\) is a group and \(X\) is its \(K(G,1)\), then the algebro-topological invariance of \(X\) is invariant of \(G\). In particular, we look at the cohomology of groups (with trivial coefficients):
 \[ H^*(G,\Z):= H^*(X,\Z) \]

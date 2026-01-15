@@ -1,0 +1,147 @@
+% !TeX root = ../main.tex
+\section{Cohomology of Groups}
+\label{sec:W1D2}
+
+\begin{definition}
+    \label{def:n-connected}
+    We say a space \(Y,y_0\) is \emph{\(n\)-connected} if \(\pi_i(Y,y_0) =0\) for all \(0\leq i \leq n\).
+\end{definition}
+
+Other than the trivial coefficient \(\Z\), we use also group rings to calculate the cohomology of groups to get different properties. 
+
+\begin{definition}
+    \label{def:group-ring}
+    Let \(G\) be a group. The group ring \(\Z G\) is the set of finite \(Z\)-linear combinations of elements of \(G\).
+\end{definition}
+
+\begin{remark}
+    We may also use \(\R\),  fields, or PIDs, etc. instead of \(\Z\) to get different group rings.
+\end{remark}
+
+\begin{example}
+    Let \(G=\Z =\langle t \rangle \). Then \(\Z G =  \Z [t,t^{-1}]\).
+\end{example}
+
+\begin{example}
+    Let \(G=\Z/n\Z = \langle t \rangle \). Then \(\Z G= \Z[t]/(t^n-1)\).
+\end{example}
+
+
+
+Notice that \(g^n  =1\) for some non-trivial element \(g\in G\), i.e. \(G\) has a non-trivial torsion, then we have: 
+\[ 0 = g^n -1 = (g-1)(g^{n-1}+\cdots + g+1) \]
+which implies that \(g-1\) is a non-zero zero-divisor. The other direction of this fact is an open question.
+
+\begin{question}[Kaplansky's Conjecture]
+    \label{conj:torsion-free-no-zero-divisor}
+    If \(G\) is torsion-free, then \(\Z G\) has no non-zero zero-divisor.
+\end{question}
+
+A motivation for \cref{conj:torsion-free-no-zero-divisor} is that we may embed \(\Z G\) into its division ring, so we wish to have no non-zero zero-divisors in \(\Z G\).
+
+
+Typically \(G\) is not abelian, so \(\Z G\)is not a commutative ring. Left and right \(\Z G\)-modules are typically different. By default, we use left \(\Z G\)-modules.
+
+\begin{remark}
+    \label{rmk:left-right-module-transfer}
+    If \(M\) is a left \(\Z G\)-module, it can be turned into a right \(\Z G\)-module by defining a right \(G\)-action \(mg = g^{-1}m\).
+\end{remark}
+
+\begin{definition}
+    \label{def:resolution-free-ZG-module}
+    A free resolution of \(\Z\) (the trivial \(\Z G\)-module) by free \(\Z G\)-module is a resolution
+    \[ \cdots\to F_1 \to F_0 \to \Z \to 0\]
+    that is exact, and every \(F_i\) is a free \(\Z G\)-module (i.e. \((\Z G)^n\) for some \(n\)).
+
+    We sometimes use also resolutions by projective \(\Z G\)-modules.
+\end{definition}
+
+The free resolution arises naturally from \(K(G,1)\) in the following manner. Say \(X\) is a CW complex \(K(G,1)\) (recall \cref{def:KG1}), then its cellular \(i\)-chain \(C_i(\tilde X; \Z)\) is a free \(\Z G\)-module with basis in bijective with \(i\)-celss in \(X\). (Recall that \(G\) acts freely on \(\tilde X\), so \(G\) acts on \(C_i(\tilde X ; \Z)\) freely.)
+
+TODO picture example 
+
+Since \(\tilde X\) is contractible, \(H_*(\tilde X) =0\). That is, the complex
+\[
+ \cdots \to C_{n+1} (\tilde X) \xrightarrow{\partial_{n+1}} C_n \xrightarrow{\partial_n} \cdots \xrightarrow{\partial_1} C_0(\tilde X) \xrightarrow{\epsilon} \Z \to 0
+\]
+is exact. The boundary maps are \(\Z G\)-module homomorphisms. This gives a free resolution of \(\Z\) by free \(\Z G\)-modules.
+
+\begin{theorem}
+    \label{thm:unique-resolution-up-to-homotopy}
+    There is a unique resolution of \(\Z\) by free (projective) \(\Z G\)-module.
+\end{theorem}
+
+
+\begin{definition}
+    \label{def:cohomology-of-group}
+    Let \(M\) be a left \(\Z G\)-module. Let \(F = \{(F_i, d_i)\}\) be a free resolution of \(\Z\). We truncate \(F\) at \(n\) to get a  finite (non-exact) complex:
+   
+     \[ 
+        F_i \xrightarrow{d_i} F_{i-1} \xrightarrow{d_{i-1}}\cdots \xrightarrow{d_1} F_0 \to 0 .
+    \]
+
+    Apply \(\Hom{\_}{M}{\Z G}\) to the complex. Denote \(F^i = F_i^* =  \Hom{F_i }{M }{\Z G}\). We have:
+    \[ 
+        F^i \xleftarrow{d^{i-1}} F^{i-1} \xleftarrow{d^{i-2}}\cdots \xleftarrow{d^0} F^0 \xleftarrow{} 0 .
+    \]
+
+    The \emph{cohomology of \(G\)} with coefficients in \(M\), denoted as \(H^*(G;M)\), is the homology of the complex above: 
+    \[ H^i(G;M) = \ker d^i/\im d^{i-1} .\]
+\end{definition}
+
+The following is exact:
+\[
+    \Hom{F_1 }{M }{\Z G} \xleftarrow{d^0 =d_1^*} \Hom{F_0}{M }{\Z G} \xleftarrow{\epsilon^*} \Hom{\Z }{M }{\Z G} \xleftarrow 0.
+\]
+Denote \(H^0(G;M)\) as \(M^G\). Notice that \(M^G = \ker d^0 = \im \epsilon^* \cong \Hom{\Z }{M }{\Z G}\). Recall that \(G\) acts on \(\Z\) trivially, so elements in \(\Hom{\Z }{M }{\Z G}\) has to be elements in \(M\) that are invariant under \(G\), i.e. \(M^G = \{m\in M \mid \forall g \in G, gm=m\}\).
+
+Since free resolutions  are chain homotopic, \(H^*(G;M)\) is independent of the choices of the free resolution. 
+
+\begin{example}
+    \label{ex:cohomology-of-ZnZ}
+    Let \(G=\Z/n\Z\), \(M=\Z\). Then \(\Z G = \Z[t]/(t^n-1)\). Consider \(\Z G \xrightarrow{\epsilon} \Z \to 0\), \(\ker \epsilon = (t-1)\). Let \(N = t^{n-1}+\dots + t + 1\). We have the free resolution:
+    \[ 
+        \cdots \to \Z G
+        \xrightarrow{\cdot N }  \Z G 
+        \xrightarrow{\cdot(t-1)} \Z G
+        \xrightarrow{\cdot N }  \Z G 
+        \xrightarrow{\cdot(t-1)}  \Z G 
+        \xrightarrow{\epsilon} \Z \to 0.
+    \]
+\end{example}
+
+Apply \(\Hom{\_ }{\Z }{\Z G}\)to the resolution. For any \(f\in \Hom{\Z G }{\Z }{\Z G}\), \(f(\sum_i \a_i t^i)\) has to be \(k \sum_i \a_i\) where \(k\in \Z\), i.e. \(\Hom{\Z G }{\Z }{\Z G} = \Z\). Thus the cochain complex we obtained is:
+\[
+    \cdots \xleftarrow{\cdot n} \Z \xleftarrow{\cdot 0} \Z  \xleftarrow{\cdot n} \Z \xleftarrow{\cdot 0} \Z \leftarrow 0.
+\]
+
+We conclude that 
+\begin{equation*}
+    H^i(\Z/n\Z;\Z) = 
+    \begin{cases}
+        \Z & \text{if } i=0 ,\\
+        \Z/n\Z & \text{if } i\geq 1 \text{ is odd}, \\
+        0 & \text{if } i\geq 1 \text{ is even}.
+    \end{cases}
+\end{equation*}
+
+\begin{proposition}
+    \label{prop:high-cohomology-zero}
+    If \(X\) is an \(n\)-dimensional \(K(G,1)\), \(M\) is any \(\Z G\)-module, then \(\forall m > n\), \(H^m(G;M) =0\).
+\end{proposition}
+That's because the free resolution is trivial for \(m>n\).
+
+\begin{corollary}
+    \label{cor:KG1-ZnZ-infinite-dimensional}
+    There does not exist any finite-dimensional \(K(\Z/n\Z, 1)\) for \(n\geq 2\).
+\end{corollary}
+
+We are now ready to prove \cref{thm:torsion-criterion-KG1}. Recall the statement:
+
+\TorsionCriterion*
+
+\begin{proof}
+    Let \(X\) be a \(K(G,1)\). For any subgroup \(H\leq G\), let \(X^H\) be the cover of \(X\) corresponding to \(H\). Then \(X^H\) is a \(K(H,1)\). Observe that \(X\) and \(X^H\) have the same dimension.
+
+    If \(G\) has non-trivial torsion, then there exists \(\Z/n\Z \leq G\) with \(n\geq 2\). By \cref{cor:KG1-ZnZ-infinite-dimensional}, \(X^H\) is infinite-dimensional, hence so is \(X\).
+\end{proof}
