@@ -1,0 +1,128 @@
+% !TeX root = ../main.tex
+\section{Compactly supported cellular cohomology}
+\label{sec:W1D3}
+
+In this course we focus on \(\Z G\)-module with trivial coefficient. For coefficients other than \(\Z\), a key phrase is ``local systems of coefficients on \(X\)''.
+
+\begin{theorem}
+    \label{thm:group-cohomology-cong-cellular-cohomology}
+    If \(X\) is a \(K(G,1)\), then for all \(i\geq 0\), \(H^i(G;\Z) \cong H^i(X;\Z)\).
+\end{theorem}
+\begin{proof}
+    Recall that \(X\) gives a free \(\Z g\) resolution of \(Z\) (See \cref{rmk:free-resolution-arises-naturally}):
+    \[
+        \cdots \to C_1(\tilde X) \xrightarrow{d_1} C_0(\tilde X) \xrightarrow{\epsilon} \Z \to 0.
+    \]
+
+    Apply \(\Hom{\_}{\Z }{\Z G}\) to the resolution and consider \(\Hom{C_i(\tilde X  )}{\Z }{\Z G}\). Recall that \(\Z G\) homomorphism has to be invariant under \(G\), so the map has to assign a same number to each \(i\)-cell in the same \(G\)-orbit. It is naturally equivalent to assign numbers to \(i\)-cells in \(X\) i.e. cellular chains in \(X\).
+\end{proof}
+
+\begin{definition}
+    \label{def:compact-homomorphism}
+    Let \(M\) be a \(\Z G\)-module.     Define \(\Hom{M}{\Z }{c} \subseteq \Hom{M }{\Z }{} \) to be 
+    \[
+        \{ f:M\to \Z \mid \forall m \in M, \text{ for all but finitely many } g\in G, f(gm)=0 \}.
+    \] 
+\end{definition}
+
+\begin{lemma}[{\cite[Lemma VIII.7.4]{brown_cohomology_1982}}]
+    \label{lem:compact-homomorphism-cong-ZG-homomorphism}
+    Let \(\G\) be a \(\Z G\)-module, then 
+    \[
+        \Hom{M }{\Z G }{\Z G} \cong \Hom{M }{\Z }{c}.
+    \]
+\end{lemma}
+\begin{proof}
+    Take \(F \in \Hom{M }{\Z G }{\Z G}\). For \(m\in M\), \(F(m)\) can be written as \(\sum_{g\in G} f_g(m) g\) where \(f_g(m)=0\) for all but finitely many \(g\).
+
+    Verify that   \(F \in \Hom{M }{\Z G }{\Z G}\) if and only if \(f_g(m) = f_1(g^{-1}m)\). So \(F\mapsto f_1\) gives a map whose inverse is:
+    \[ f\mapsto \{ m\mapsto \sum_{g\in G} f(g^{-1}m) g\}. \]
+\end{proof}
+
+
+\begin{definition}
+    \label{def:compactly-supported-cellular-cohomology}
+    Let \(Y\) be a locally compact CW complex. That is for all \(n\)-cell \(\sigma\), there are finitely many \(n+1\) cells whose boundary meets \(\sigma\).
+    Let \(C_c^i(Y;\Z) \subseteq C^i(Y;\Z)\) be the set of finitely supported cellular cochains with 
+    \[ 
+        \d^i_c : C_c^i(Y;\Z) \to C_c^{i+1}(Y;\Z) .
+    \]
+    The homology of this chain complex, denoted as  \(H^i_c(Y;\Z)\), is the \emph{compactly supported cohomology}. 
+\end{definition}
+
+\begin{remark}
+    The requirement of locally compactness is to ensure that finitely supported cochains and compactly supported cochains are the same set.
+\end{remark}
+
+\begin{theorem}
+    \label{thm:finite-KG1-compact-cohomology}
+    If \(X\) is a finite \(K(G,1)\), then \[ H^i(G;\Z G) \cong H_c^i(\tilde X;\Z) .\]
+\end{theorem}
+\begin{proof}
+    Recall that by \cref{lem:compact-homomorphism-cong-ZG-homomorphism},
+    \begin{align*}
+          \Hom{ C_i(\tilde X) }{\Z G }{\Z G}  
+         \cong \Hom{C_i(\tilde X) }{\Z }{c} 
+         = C_c^i(\tilde X;\Z).
+    \end{align*} 
+    So they induce they same cohomology (See \cref{def:cohomology-of-group,def:compactly-supported-cellular-cohomology}).
+\end{proof}
+
+\begin{remark}
+    \label{rmk:compact-support-cohomology-as-direct-limit}
+    A more natural definition of compactly supported cohomology arises from the direct limit of relative cohomology groups. Observe that a finitely supported \(i\)-cochain is \(0\) outside some compact set \(K\), so it lies in \(C^i(Y,Y\backslash K;\Z)\). We define:
+    \[ H_c^*(Y;\Z) = \varinjlim_{K \text{ compact}} H^*(Y,Y\backslash K;\Z) .\]
+\end{remark}
+
+\begin{example}[Compactly supported cohomology of \(\R\)]
+    \label{ex:compact-supported-cohomology-R}
+    Observe that for a connected infinite CW complex \(Y\), \(H_c^0(Y;\Z )= \ker \d^0_c\), which is the set of finitely supported \(1\)-cochains that are constant. So it has to be trivial. (It would be \(\Z\) if \(Y\) is finite.)
+
+    We calculate the compactly supported cohomology for \(\R\). It's cellulated as an infinite graph, which is contractible, so \(H^0_c(\R;\Z)=0\).  For \(n >2\), since there are no \(n\)-cells, \(H^n_c(\R;\Z)=0\). Consider now \(H^1_c(\R;\Z)\). Since there are no \(2\)-cells, all \(1\)-cochains are \(1\)-cocycles. Therefore \(H^1_c(\R;\Z)=C_c^1(\R;\Z)/\im \d^0_c\).
+
+    Consider \(\im \d^0_c\). Recall that \(\d^0_c(\sigma)(e)=\sigma(v_o)-\sigma(v_t)\) for any edge \(v\) with endpoints \(v_o, v_t\).  Observe that each vertex serves as the starting endpoint of one edge and the terminal endpoint of another edge. So \(sum_{e}\d^0_c(\sigma)e = 0\), i.e. \(\im \d^0_c = 0\). It follows that \(H^1_c(\R;\Z) \cong C^1_c(\R;\Z)\).
+
+    Consider now the homomorphisms \(C^1_c(\R;\Z) \to \Z\), they  have the form:
+    \[
+         \sum_{i} m_i e_i^* \mapsto \sum_i m_i,
+    \]
+    where \(e^*_i(e_i)=0\) and it sends everything else to \(0\). 
+
+    We need to show that if \(\sum_{i} m_i e_i^*\) has \(\sum_i m_i = 0\) then \(\sum_{i} m_i e_i^* \) is a coboundary. The idea is one can modify a cochain by a coboundary consecutively until one get something supported on a single edge whose coefficient sum is zero. So it's a zero coboundary. For example, applying \( \d(v_i^*)\) to \(e_1 + e_2\) gives \((1-1)e_1 + 0 e_2\).
+
+    TODO not quite so sure
+
+\end{example}
+
+\begin{corollary}
+    \begin{align*}
+        H^i_c(\Z;\Z[\Z]) = \begin{cases}
+            \Z & i=1,\\
+            0 & \text{otherwise}.
+        \end{cases}
+    \end{align*}
+\end{corollary}
+
+\begin{example}[Compactly supported cohomology of \(\mathbb{F}_2\)]
+    \label{ex:compact-supported-cohomology-F2}
+    Consider the infinite \(4\)-valence tree \(T\) (the universal cover of the wedge of two circles). Similarly, \(H^i_c(T;\Z)=0\) when \(i\neq 1\). For \(H^1_c(T;\Z)\), by \cref{rmk:compact-support-cohomology-as-direct-limit} it is the direct limit of \(H^1(T,T\backslash K;\Z)\) over all compact sets. Consider the long exact sequence of reduced cohomology groups:
+    \[
+    \tilde H^0(T;\Z)  \to \tilde H^0 (T\backslash K ; \Z) \to \tilde H^1 (T,T\backslash K; \Z) \to \tilde H^1 (T;\Z).
+    \]
+
+    Since \(T\) is contractible, \(\tilde H^i(T;\Z) =0 \), hence \(\tilde H^0 (T\backslash K ; \Z) \cong \tilde H^1 (T,T\backslash K; \Z)\). Now \(\tilde H^0 (T\backslash K ; \Z)\) counts the components of \(T\backslash K\), which increases infinitely as the size of \(K\) increases. 
+    
+    We conclude that  \(\tilde H^1 (T,T\backslash K; \Z)\) is infinitely generated. In fact, it's an infinitely generated free abelian group.
+\end{example}
+
+\begin{corollary}
+    \begin{align*}
+        H^i_c(\mathbb{F}_2;\Z[\mathbb{F}_2]) = \begin{cases}
+            D & i=1,\\
+            0 & \text{otherwise},
+        \end{cases}
+    \end{align*}
+    where \(D\) is infinitely generated.
+\end{corollary}
+
+The example above shows that \(1\)-cohomology of the group with group-ring coefficients has rank of numbers of ends of the group plus 1.

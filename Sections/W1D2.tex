@@ -56,15 +56,20 @@ Typically \(G\) is not abelian, so \(\Z G\)is not a commutative ring. Left and r
     We sometimes use also resolutions by projective \(\Z G\)-modules.
 \end{definition}
 
-The free resolution arises naturally from \(K(G,1)\) in the following manner. Say \(X\) is a CW complex \(K(G,1)\) (recall \cref{def:KG1}), then its cellular \(i\)-chain \(C_i(\tilde X; \Z)\) is a free \(\Z G\)-module with basis in bijective with \(i\)-celss in \(X\). (Recall that \(G\) acts freely on \(\tilde X\), so \(G\) acts on \(C_i(\tilde X ; \Z)\) freely.)
+\begin{remark}
+    \label{rmk:free-resolution-arises-naturally}
+    The free resolution arises naturally from \(K(G,1)\) in the following manner. Say \(X\) is a CW complex \(K(G,1)\) (recall \cref{def:KG1}), then any \(i\)-cell in \(\tilde X\) is \(g\sigma\) for some \(g\in G\) and \(\sigma \) an \(i\)-cell in \(X\). So we can view the cellular \(i\)-chain \(C_i(\tilde X; \Z)\) as a free \(\Z G\)-module with basis in bijective with \(i\)-cells in \(X\). 
+    % (Recall that \(G\) acts freely on \(\tilde X\), so \(G\) acts on \(C_i(\tilde X ; \Z)\) freely.)
+
+    Since \(\tilde X\) is contractible, \(H_*(\tilde X) =0\). That is, the complex
+    \[
+    \cdots \to C_{n+1} (\tilde X) \xrightarrow{\partial_{n+1}} C_n \xrightarrow{\partial_n} \cdots \xrightarrow{\partial_1} C_0(\tilde X) \xrightarrow{\epsilon} \Z \to 0
+    \]
+    is exact. The boundary maps are \(\Z G\)-module homomorphisms. This gives a free resolution of \(\Z\) by free \(\Z G\)-modules.
+\end{remark}
 
 TODO picture example 
 
-Since \(\tilde X\) is contractible, \(H_*(\tilde X) =0\). That is, the complex
-\[
- \cdots \to C_{n+1} (\tilde X) \xrightarrow{\partial_{n+1}} C_n \xrightarrow{\partial_n} \cdots \xrightarrow{\partial_1} C_0(\tilde X) \xrightarrow{\epsilon} \Z \to 0
-\]
-is exact. The boundary maps are \(\Z G\)-module homomorphisms. This gives a free resolution of \(\Z\) by free \(\Z G\)-modules.
 
 \begin{theorem}
     \label{thm:unique-resolution-up-to-homotopy}
@@ -74,24 +79,24 @@ is exact. The boundary maps are \(\Z G\)-module homomorphisms. This gives a free
 
 \begin{definition}
     \label{def:cohomology-of-group}
-    Let \(M\) be a left \(\Z G\)-module. Let \(F = \{(F_i, d_i)\}\) be a free resolution of \(\Z\). We truncate \(F\) at \(n\) to get a  finite (non-exact) complex:
+    Let \(M\) be a left \(\Z G\)-module. Let \(F = \{(F_i, d_i)\}\) be a free resolution of \(\Z\). We truncate \(F\) to get a (non-exact) complex:
    
      \[ 
-        F_i \xrightarrow{d_i} F_{i-1} \xrightarrow{d_{i-1}}\cdots \xrightarrow{d_1} F_0 \to 0 .
+       \cdots \rightarrow F_i \xrightarrow{d_i} F_{i-1} \xrightarrow{d_{i-1}}\cdots \xrightarrow{d_1} F_0 \to 0 .
     \]
 
     Apply \(\Hom{\_}{M}{\Z G}\) to the complex. Denote \(F^i = F_i^* =  \Hom{F_i }{M }{\Z G}\). We have:
     \[ 
-        F^i \xleftarrow{d^{i-1}} F^{i-1} \xleftarrow{d^{i-2}}\cdots \xleftarrow{d^0} F^0 \xleftarrow{} 0 .
+       \cdots \leftarrow F^i \xleftarrow{d^{i-1}} F^{i-1} \xleftarrow{d^{i-2}}\cdots \xleftarrow{d^0} F^0 \xleftarrow{} 0 .
     \]
 
     The \emph{cohomology of \(G\)} with coefficients in \(M\), denoted as \(H^*(G;M)\), is the homology of the complex above: 
     \[ H^i(G;M) = \ker d^i/\im d^{i-1} .\]
 \end{definition}
 
-The following is exact:
+If we do not truncate the resolution, then we get the exact sequence:
 \[
-    \Hom{F_1 }{M }{\Z G} \xleftarrow{d^0 =d_1^*} \Hom{F_0}{M }{\Z G} \xleftarrow{\epsilon^*} \Hom{\Z }{M }{\Z G} \xleftarrow 0.
+    \cdots \leftarrow \Hom{F_1 }{M }{\Z G} \xleftarrow{d^0 =d_1^*} \Hom{F_0}{M }{\Z G} \xleftarrow{\epsilon^*} \Hom{\Z }{M }{\Z G} \xleftarrow 0.
 \]
 Denote \(H^0(G;M)\) as \(M^G\). Notice that \(M^G = \ker d^0 = \im \epsilon^* \cong \Hom{\Z }{M }{\Z G}\). Recall that \(G\) acts on \(\Z\) trivially, so elements in \(\Hom{\Z }{M }{\Z G}\) has to be elements in \(M\) that are invariant under \(G\), i.e. \(M^G = \{m\in M \mid \forall g \in G, gm=m\}\).
 
