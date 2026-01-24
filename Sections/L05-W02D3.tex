@@ -1,0 +1,178 @@
+% !TeX root = ../main.tex
+\section{Projective Modules and more Finiteness Properties} 
+\label{sec:L05-W02D2}
+
+Recall \cref{thm:finite-KG1-compact-cohomology}. In fact, to obtain the isomorphism \(H^i(G;\Z G) \cong H_c^i(\tilde X;\Z)\), we need only finite \(X^{i+1}\).
+
+\begin{definition}
+    \label{def:cohomological-dimension}
+    Let \(G\) be a group. The \emph{cohomological dimension} of \(G\), denoted as \(\cd{G} \) (or \(\operatorname{cd}_\Z (G)\)), is defined to be 
+    \[
+        \sup \{ n \mid \exists M \text{ a } \Z G \text{-module such that } H^n(G;M) \neq 0    \}.
+    \]
+
+    If there's no bound on \(n\), then we say \(\cd{G} = \infty\).
+\end{definition}
+
+Recall geometric dimension of a group (See \cref{def:finite-type-KG1}). Given a \(K(G,1)\) of dimension \(n\), we obtain a free resolution of \(\Z\) by \(\Z G\)-modules that stops in degree \(n\). Consider its cohomology: there is no cochain groups in dimension above \(n\), so the cohomology groups in dimension above \(n\) are trivial.  That is, the geometric dimension is an upper bound of the cohomological dimension.
+
+\begin{question}
+    Are there any \(G\) with \(\cd{G} < \gd{G}\)?
+\end{question}
+\begin{theorem}[{\cite{eilenbergLusternikSchnirelmannCategoryAbstract1957}}]
+    \label{thm:cdG=gdG-for-cdG>3}
+    Let \(G\) be a group. Let \(k = \max\{\cd{G }, 3\}\). Then there exists a \(K(G,1)\) of dimension \(k\).
+\end{theorem}
+
+So if \(\cd{G}\geq 3\), then \(\cd{G}=\gd{G}\). 
+
+In lower dimensions, \(\cd{G} =0\) if and only if \(G\) is trivial if and only if \(\gd{G} =0\). (This is a good exercise). At dimension \(1\), we have \(\cd{G}=1\) if and only if \(G\) is free if and only if \(\gd (G) =1\). However, the proof is significantly harder.
+
+\begin{theorem}[Stallings-Swan theorem]
+    \label{thm:cdG=gdG-for-cdG=2}
+    If \(\cd{G}=1\) then \(G\) is free.
+\end{theorem}
+
+The case at \(2\) is still an open question, though there is already a potential counterexample. 
+TODO add reference to the potential counterexample.
+
+\begin{definition}
+    \label{def:projective-module}
+    A \(\Z G\)-module \(P\) is \emph{projective} if for every exact 
+    \[ M_0 \xrightarrow{i} M_1 \xrightarrow{j} M_2 ,\]
+    and every map \(\phi : P \to M_1\) with \(j\phi =0\), there exists \(\psi:P \to M_0\) such that \(i\psi = \phi\).
+\begin{center}
+        % https://q.uiver.app/#q=WzAsNCxbMSwwLCJQIl0sWzEsMSwiTV8xIl0sWzIsMSwiTV8yIl0sWzAsMSwiTV8wIl0sWzAsMSwiXFxwaGkiXSxbMywxLCJpIiwyXSxbMSwyLCJqIiwyXSxbMCwyLCIwIl0sWzAsMywiXFxleGlzdCBcXHBzaSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+    \begin{tikzcd}
+        & P \\
+        {M_0} & {M_1} & {M_2}
+        \arrow["\psi"', dashed, from=1-2, to=2-1]
+        \arrow["\phi", from=1-2, to=2-2]
+        \arrow["0", from=1-2, to=2-3]
+        \arrow["i"', from=2-1, to=2-2]
+        \arrow["j"', from=2-2, to=2-3]
+    \end{tikzcd}
+\end{center}
+\end{definition}
+
+\begin{lemma}
+    \label{lem:free-module-is-projective}
+    Free modules are projective.
+\end{lemma}
+\begin{proof}
+    Trace the basis of the free module.
+\end{proof}
+
+\begin{theorem}
+    \label{thm:uniqueness-of-projective-resolution}
+    Projective resolutions are unique up to chain homology.
+\end{theorem}
+
+\begin{lemma}
+    \label{lem:direct-summand-of-projective-module}
+    Let \(P\) be a projective module and let \(Q\) be a direct summand of \(P\). Then \(Q\) is projective.
+\end{lemma}
+\begin{proof} Suppose \(P=Q\oplus M\). 
+\begin{center} 
+    % https://q.uiver.app/#q=WzAsNSxbMSwxLCJRIl0sWzEsMiwiTV8xIl0sWzIsMiwiTV8yIl0sWzAsMiwiTV8wIl0sWzEsMCwiUD0gUSBcXG9wbHVzIE0iXSxbMCwxLCJcXHBoaSJdLFszLDEsImkiLDJdLFsxLDIsImoiLDJdLFswLDIsIjAiXSxbMCw0LCJcXGlvdGEiLDAseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6InRvcCJ9fX1dLFs0LDMsIlxccHNpX1AiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbNCwwLCJcXHBpIiwwLHsib2Zmc2V0IjotM31dXQ==
+    \begin{tikzcd}
+        & {P= Q \oplus M} \\
+        & Q \\
+        {M_0} & {M_1} & {M_2}
+        \arrow["\pi", shift left=3, from=1-2, to=2-2]
+        \arrow["{\psi_P}"', dashed, from=1-2, to=3-1]
+        \arrow["\iota", hook, from=2-2, to=1-2]
+        \arrow["{\psi_p \iota}", color={rgb,255:red,92;green,92;blue,214}, dashed, from=2-2, to=3-1]
+        \arrow["\phi", from=2-2, to=3-2]
+        \arrow["0", from=2-2, to=3-3]
+        \arrow["i"', from=3-1, to=3-2]
+        \arrow["j"', from=3-2, to=3-3]
+    \end{tikzcd}
+\end{center}
+\end{proof}
+
+\begin{corollary}
+    \label{cor:direct-summand-of-free-module}
+    Direct summands of free modules are projective.
+\end{corollary}
+
+\begin{proposition}
+    \label{prop:characterization-of-projctive-module}
+    TFAE:
+    \begin{enumerate}
+        \item \(P\) is projective.
+        \item For every surjective  \(\pi:M\to \bar M\) and every \(\phi:P\to \bar M\), there exists \(\psi :P\to M\) such that \(\pi\psi = \phi\).
+        \item Every exact \(0\to M\to M'\to P \to 0\) splits.
+        \item \(P\) is a direct summand of a free module.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    \((1) \implies (2)\): Replace \(M\) by \(\ker j\) in \cref{def:projective-module}.
+
+    \((2) \implies (3)\): Lift \(\operatorname{Id}:P\to P\) to \(P\to M'\).
+
+    \((3) \implies (4)\): Exhibits \(P\) as a quotient of a free module, then the following SES splits: 
+    \[0 \to \ker \epsilon \to F \xrightarrow{\epsilon} P \to 0.\]
+
+    \((4) \implies (1)\): \cref{cor:direct-summand-of-free-module}.
+\end{proof}
+
+\begin{definition}
+    \label{def:type-FF-FP}
+    Let \(G\) be a group.
+
+    We say \(G\) has type \(FF\) (resp. \(FP\)) if there exists a finite resolution of \(\Z\) by finitely generated free (resp. projective) \(\Z G\)-modules.
+
+    We say \(G\) has type \(FF_n\) (resp. \(FP_n\)) if there exists a resolution 
+    \[ \cdots\to M_1 \to M_0 \to \Z \to 0\]
+    of \(\Z\) by free (resp. projective) \(\Z G\)-modules with finitely-generated \(M_i\) for \(i\leq n\).
+
+    We say \(G\) has type \(FF_\infty\) (resp. \(FP_\infty\)) if \(G\) has type \(FF_n\) (resp. \(FP_n\)) for all \(n\).
+\end{definition}
+
+\begin{theorem}
+    \label{thm:type-FF-implies-FP}
+    Type FF implies type FP.
+\end{theorem}
+
+\begin{question}[Serre's Conjecture]
+    Does type FP imply type FF?
+\end{question}
+
+Recall type \(F, F_n, F_\infty\) (see \cref{def:finite-type-KG1}). Clearly \(F_n \implies FF_n \implies FP_n\). Recall also \cref{thm:fp-criterion-KG1}.
+
+\begin{theorem}
+    \label{thm:FP2-not-F2}
+    There exists \(G\) of type \(FP_2\) which is not finitely presented (hence is not of type \(F_2\))
+\end{theorem}
+
+
+Right-angled Artin groups is a class of groups that can tells those properties apart.
+
+
+\begin{definition}
+    \label{def:RAAG}
+    Let \(\G\) be a simplicial graph with vertex set \(V\) and edge set \(E\). We associate a group \(A_\G\) to \(\G\) 
+
+    \[
+        A_\G := \langle V \mid vw=wv \text{ if } \{v,w\} \in E \rangle .
+    \]
+\end{definition}
+
+\begin{example}
+    \label{ex:RAAG}
+    \begin{enumerate}
+        \item If \(|V| =m\) and \(E=\emptyset\), then \(A_\G = \mathbb{F}_m\).
+        \item If \(|V|=m\) and \(\G\) is a complete graph, then \(A_\G = \Z^m\).
+        \item Say \(V=\{a,b,c\}\) and \(E=\{\{a,b\}\}\), then \(A_\G = \Z^2*\Z\).
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}
+    \label{thm:gd-of-RAAG-clique-number}
+    Let \(k\) be the clique number (i.e. maximal size of complete subgraph) of \(\G\). Then \(\gd{A_G}=k\).
+\end{theorem}
+
+\begin{remark}
+    Notice that under the assumption of \cref{thm:gd-of-RAAG-clique-number}, \(\Z^k \subseteq A_\G\), so \(\cd{A_\G} \geq k\). We are interested in the subgroups of \(A_\G\) and we will investigate the map \(\phi_\G : A_\G \to \Z\), defined by \(v\mapsto 1, \forall v\in V\).
+\end{remark}

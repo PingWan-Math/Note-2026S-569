@@ -1,10 +1,10 @@
 % !TeX root = ../main.tex
 \section{Cohomology of Groups}
-\label{sec:W1D2}
+\label{sec:L02-W01D2}
 
 \begin{definition}
     \label{def:n-connected}
-    We say a space \(Y,y_0\) is \emph{\(n\)-connected} if \(\pi_i(Y,y_0) =0\) for all \(0\leq i \leq n\).
+    We say a space \((Y,y_0)\) is \emph{\(n\)-connected} if \(\pi_i(Y,y_0) =0\) for all \(0\leq i \leq n\).
 \end{definition}
 
 Other than the trivial coefficient \(\Z\), we use also group rings to calculate the cohomology of groups to get different properties. 
@@ -47,18 +47,19 @@ Typically \(G\) is not abelian, so \(\Z G\)is not a commutative ring. Left and r
     If \(M\) is a left \(\Z G\)-module, it can be turned into a right \(\Z G\)-module by defining a right \(G\)-action \(mg = g^{-1}m\).
 \end{remark}
 
-\begin{definition}
+\begin{definition}[Free resolution]
     \label{def:resolution-free-ZG-module}
     A free resolution of \(\Z\) (the trivial \(\Z G\)-module) by free \(\Z G\)-module is a resolution
-    \[ \cdots\to F_1 \to F_0 \to \Z \to 0\]
+    \[ \cdots\to F_1 \to F_0 \xrightarrow{\epsilon} \Z \to 0\]
     that is exact, and every \(F_i\) is a free \(\Z G\)-module (i.e. \((\Z G)^n\) for some \(n\)).
-
-    We sometimes use also resolutions by projective \(\Z G\)-modules.
 \end{definition}
+
+
+Sometimes we also use resolutions by projective \(\Z G\)-modules (See \cref{def:projective-module}).
 
 \begin{remark}
     \label{rmk:free-resolution-arises-naturally}
-    The free resolution arises naturally from \(K(G,1)\) in the following manner. Say \(X\) is a CW complex \(K(G,1)\) (recall \cref{def:KG1}), then any \(i\)-cell in \(\tilde X\) is \(g\sigma\) for some \(g\in G\) and \(\sigma \) an \(i\)-cell in \(X\). So we can view the cellular \(i\)-chain \(C_i(\tilde X; \Z)\) as a free \(\Z G\)-module with basis in bijective with \(i\)-cells in \(X\). 
+    The free resolution arises naturally from \(K(G,1)\) in the following manner. Say \(X\) is a CW complex \(K(G,1)\) (recall \cref{def:KG1}), then any \(i\)-cell in \(\tilde X\) is \(g\sigma\) for some \(g\in G\) and  some \(i\)-cell \(\sigma \) in \(X\). So we can view the cellular \(i\)-chain \(C_i(\tilde X; \Z)\) as a free \(\Z G\)-module whose basis is in bijective with \(i\)-cells in \(X\). 
     % (Recall that \(G\) acts freely on \(\tilde X\), so \(G\) acts on \(C_i(\tilde X ; \Z)\) freely.)
 
     Since \(\tilde X\) is contractible, \(H_*(\tilde X) =0\). That is, the complex
@@ -68,8 +69,7 @@ Typically \(G\) is not abelian, so \(\Z G\)is not a commutative ring. Left and r
     is exact. The boundary maps are \(\Z G\)-module homomorphisms. This gives a free resolution of \(\Z\) by free \(\Z G\)-modules.
 \end{remark}
 
-TODO picture example 
-
+% TODO picture example 
 
 \begin{theorem}
     \label{thm:unique-resolution-up-to-homotopy}
@@ -77,7 +77,7 @@ TODO picture example
 \end{theorem}
 
 
-\begin{definition}
+\begin{definition}[Cohomology of group]
     \label{def:cohomology-of-group}
     Let \(M\) be a left \(\Z G\)-module. Let \(F = \{(F_i, d_i)\}\) be a free resolution of \(\Z\). We truncate \(F\) to get a (non-exact) complex:
    
@@ -96,13 +96,13 @@ TODO picture example
 
 If we do not truncate the resolution, then we get the exact sequence:
 \[
-    \cdots \leftarrow \Hom{F_1 }{M }{\Z G} \xleftarrow{d^0 =d_1^*} \Hom{F_0}{M }{\Z G} \xleftarrow{\epsilon^*} \Hom{\Z }{M }{\Z G} \xleftarrow 0.
+    \cdots \leftarrow \Hom{F_1 }{M }{\Z G} \xleftarrow{d^0 =d_1^*} \Hom{F_0}{M }{\Z G} \xleftarrow{\epsilon^*} \Hom{\Z }{M }{\Z G} \xleftarrow{} 0.
 \]
-Denote \(H^0(G;M)\) as \(M^G\). Notice that \(M^G = \ker d^0 = \im \epsilon^* \cong \Hom{\Z }{M }{\Z G}\). Recall that \(G\) acts on \(\Z\) trivially, so elements in \(\Hom{\Z }{M }{\Z G}\) has to be elements in \(M\) that are invariant under \(G\), i.e. \(M^G = \{m\in M \mid \forall g \in G, gm=m\}\).
+Denote \(H^0(G;M)\) as \(M^G\). Notice that \(M^G = \ker d^0 = \im \epsilon^* \cong \Hom{\Z }{M }{\Z G}\). Recall that \(G\) acts on \(\Z\) trivially, so elements in \(\Hom{\Z }{M }{\Z G}\) have to be elements in \(M\) that are invariant under \(G\), i.e. \(M^G = \{m\in M \mid \forall g \in G, gm=m\}\).
 
 Since free resolutions  are chain homotopic, \(H^*(G;M)\) is independent of the choices of the free resolution. 
 
-\begin{example}
+\begin{example}[Cohomology of \(\Z/n\Z\)]
     \label{ex:cohomology-of-ZnZ}
     Let \(G=\Z/n\Z\), \(M=\Z\). Then \(\Z G = \Z[t]/(t^n-1)\). Consider \(\Z G \xrightarrow{\epsilon} \Z \to 0\), \(\ker \epsilon = (t-1)\). Let \(N = t^{n-1}+\dots + t + 1\). We have the free resolution:
     \[ 
@@ -134,7 +134,9 @@ We conclude that
     \label{prop:high-cohomology-zero}
     If \(X\) is an \(n\)-dimensional \(K(G,1)\), \(M\) is any \(\Z G\)-module, then \(\forall m > n\), \(H^m(G;M) =0\).
 \end{proposition}
-That's because the free resolution is trivial for \(m>n\).
+\begin{proof}
+    The free resolution is trivial for \(m>n\).
+\end{proof}
 
 \begin{corollary}
     \label{cor:KG1-ZnZ-infinite-dimensional}

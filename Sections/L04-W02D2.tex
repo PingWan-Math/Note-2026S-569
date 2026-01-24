@@ -1,0 +1,74 @@
+% !TeX root = ../main.tex
+\section{Group Cohomology of Surface Groups}
+\label{sec:L04-W02D2}
+
+\begin{example}[Compactly supported cohomology of \(R^n\)]
+    \label{ex:compact-supported-cohomology-Rn}
+    Suppose \(\R^n\) is equipped with a polyhedral decomposition. 
+    Suppose each \((n-1)\)-cell is adjacent to \(2\) oriented \(n\)-cells, and the \(n-1\)-cell appears in their boundary with opposite orientation. 
+    Suppose further that each compact \(K\subseteq \R^n\) is contained in a ball. (For example, regard \(R^3\) as  the universal covering space of 3-\(torus\).)
+
+    Since \(\R^n\) is contractible, \(H_c^0(\R^n;\Z)=0\).
+
+    For \(1\leq i <n\), take \(\eta \in C_c^i(\R^n;\Z)\) such that \(\d\eta=0\). Take a ball \(B\) such that \( \supp{\eta} \subseteq B \). We can regard \(\eta\) as an element of \(H^i(\R^n,\R^n\backslash B)\) (that is, a cochain on \(\R^n\) that vanishes on \(B\)). Recall that \(H^i(\R^n,\R^n\backslash B) \cong \tilde H^{i-1}(\R^n\backslash B) \cong \tilde H^{i-1}(\mathbb{S}^{n-1}) =0 \).
+
+    Consider now the augmented chain \(C_c^{n-1}(\R^n;\Z) \xrightarrow{\d} C_c^n(\R^n;\Z) \xrightarrow{\epsilon} \Z \to 0\). The assumption that each \((n-1)\)-cell occurs in the boundary of two \(n\)-cells with opposite orientation implies that \(\im \d \subseteq \ker \epsilon\) (similar to \cref{ex:compact-supported-cohomology-R}), so \(\epsilon\) factors through \(H_c^n(\R^n;\Z) \to \Z\). Again, we need to show that the map is injective. The argument is similar to \cref{ex:compact-supported-cohomology-R}: we take the dual graph of \(\R^n\) so that vertices are dual \(n\)-cells and edges are dual \((n-1)\)-cells. We then adjust one dual \(n\)-cell at a time until the cochain is supported on a single dual \(n\)-cell with coefficient zero.
+\end{example}
+
+\begin{corollary}
+    \label{cor:cohomology-of-surface-group}
+    Let \(M\) be a closed \(n\)-manifold with \(\tilde M \cong \R^n\). Let \(G=\pi_1(M)\). Then 
+    \begin{align*}
+        H^i(G;\Z G) \cong H^i_c(\R^n;\Z) = \begin{cases}
+            \Z & i=n,\\
+            0 & \text{otherwise}.
+        \end{cases}
+    \end{align*}
+
+    In particular, if \(\Sigma_g\) is a closed orientable surface with genus \(g \geq 1\) and \(G=\pi_1(\Sigma_g)\), then 
+    \begin{align*}
+        H^i(G;\Z G) = \begin{cases}
+            \Z & i=2,\\
+            0 & \text{otherwise}.
+        \end{cases}
+    \end{align*}
+\end{corollary}
+\begin{remark}
+    For non-orientable manifolds, the cohomology would be the same. What's different is the action of \(\G\) on the top cohomology \(Z\).
+\end{remark}
+
+In general, \(H^i(G;\Z G)\) is a \(\Z G\)-module. Take a free resolution \(F\). A priori, \(\Hom{F_i }{\Z G }{\Z G}\) is just an abelian group, but the right action by \(G\) satisfies  the criterion from \cref{lem:compact-homomorphism-cong-ZG-homomorphism}. Therefore, as a quotient of \(\Z G\)-module by \(\Z G\)-module, \(H^i(G;\Z G)\) is also a \(\Z G\)-module.
+
+\begin{question}[Wall]
+    \label{q:wall}
+    Suppose \(G\) has type \(F\) (recall \cref{def:finite-type-KG1}) and suppose that for some \(n\), \(H^n(G;\Z G) = \Z\) and \(H^i(G; \Z G) =0\) otherwise. Does there exist a closed aspherical manifold \(M\) such that \(G=\pi_1 (M)\)?
+\end{question}
+
+\cref{q:wall} is known to be true for \(n= 1\) (\(G =\Z\))  and \(n=2\) (surface groups). It is wide open for \(n\geq 3\). 
+
+Notice that if such an \(M\) exists, it's unique up to homotopic equivalence by the uniqueness of \(K(G,1)\). It's natural to ask:
+
+\begin{question}[Borel conjecture]
+    \label{q:borel-conjecture}
+    If \(M_1, M_2\) are closed aspherical manifolds that are homotopic equivalent to each other, are they homeomorphic to each other? 
+\end{question}
+
+\cref{q:borel-conjecture} is known to be true for \(n=1,2,3\). Note that in general, without the assumption of aspherical, this is not true.
+
+Recall that two homotopic equivalent manifolds \(M_1, M_2\) have isomorphic fundamental groups. 
+A group theoretic version of \cref{q:borel-conjecture} is: Given a group \(G\), does it have a unique \(K(G,1)\) up to homeomorphism?
+
+
+
+\begin{theorem}
+    \label{thm:n-connected-gives-aspherical-cw-complex}
+    Let \(X\) be a CW complex such that \(\tilde X\) is \(k\)-connected (recall \cref{def:n-connected}) for some \(k\). Then there exists an aspherical CW complex \(Z\) such that \(Z^{k+1} = X^{k+1}\).
+\end{theorem}
+
+\cref{thm:n-connected-gives-aspherical-cw-complex} is the reason we are interested in \(1\)-connected spaces, because we can obtain a CW complex with the same fundamental group.
+
+\begin{proof}
+    Assume inductively that we've built \(Z_n\) such that \(\tilde Z_n\) is \(n\)-connected and \(Z_n^{k+1} = X^{k+1}\) (\(Z_k\) is just \(X\)). Note that every map \(f:\mathbb{S}^{n+1}\to Z_n\) is homotopic to a map with image in \(Z_n^{n+1}\). Let \(\{F_\a : \mathbb{S}^{n+1} \to Z_n^{n+1} \mid  \a \in A_n\}\) denote the homotopy classes of maps \(\mathbb{S}^{n+1}\to Z_n\). Build \(Z_{n+1}\) by gluing \((n+1)\)-cells to \(Z_n\) using  \(F_\a\)s as attaching maps.
+
+    Observe that \(Z_{n+1}^{n+1} = Z_n^{n+1}\). Any \(g: \mathbb{S}^{n+1} \to Z_{n+1}\) is homotopic to some \(F_\a\), hence is null-homotopic. Therefore \(\tilde Z_{n+1}\) is \((n+1)\)-connected.
+\end{proof}
