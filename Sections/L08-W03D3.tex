@@ -1,0 +1,107 @@
+% !TeX root = ../main.tex
+\section{Cube Complex}
+\label{sec:L08-W03D2}
+
+
+\begin{definition}
+    \label{def:cube-complex}
+    A cube complex is a space built out of Euclidean \(k\)-cubes \([0,1]^k\) (\(k\) may be different) by gluing faces by (linear) isometries.
+\end{definition}
+
+\begin{example}[Examples of cube complex]
+    \label{ex:cube-complex}
+    \begin{itemize}
+        \item \(\mathbb{S}^1\) and any \(1\)-dimensional CW complex.
+        \item Tori.
+        \item \(\mathbb{S}^2\)
+        \item Closed orientable genus 2 surface \(\Sigma_2\) built out of \(8\) pentagons (glue 4 pentagons at each vertex). Note that by connecting the face center and five edge centers, we can subdivide a pentagon into 5 squares.
+        \item Poincare homology sphere (See \cref{ex:Poincare-homology-sphere}).
+        \item Seifert–Weber dodecahedral space.
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    \label{def:link}
+    In a cube complex \(X\), let \(v\) be a vertex. \(lk(v)\) is the boundary of an \(\epsilon\)-neighborhood of \(v\) in \(X\) (where \(epsilon\) is small, e.g. \(1/3\)). It consists of a collection of spherical simplices and is a \(\Delta\)-complex.
+\end{definition}
+
+\begin{example}
+    \label{ex:link-of-cube-complex}
+    \begin{itemize}
+        \item For a \(1\)-simplex, \(lk(v)\) is a point (that is \(epsilon\)-away from \(v\)).
+        \item For a \(2\)-simplex, \(lk(v)\) is an arc (of a circle with radius \(epsilon\)).
+        \item Glue the two adjacent edges of \(v\) together, then \(lk(v)\) is a loop.
+    \end{itemize}
+\end{example}
+
+\begin{definition}[Gromov's Link Condition]
+    \label{def:NPC-cube-complex}
+    A cube complex is \emph{non-positively curved (NPC)} if for any vertex \(v\), \(lk(v)\) is simplicial and flag.
+\end{definition}
+
+\begin{definition}
+    \label{def:CAT-0-cube-complex}
+    An NPC cube complex is \emph{\CATz} if it's simply-connected.
+\end{definition}
+
+Note that this means any NPC cube complex admits a \CATz cube complex universal cover.
+
+\begin{theorem}[Gromov]
+    \label{thm:connected-NPC-cube-complex-aspherical}
+    All \CATz cube complexes are contractible. Hence all connected NPC cube complexes are aspherical.
+\end{theorem}
+
+Note that the converse is not true. Consider 3 squares glue to one vertex (a corner of the shell of a cube). This space is contractible, but the link is an empty triangle, hence this space is not NPC.
+
+Observe that all graphs are NPC, as their links are disjoint points.
+
+\begin{proposition}
+    \label{prop:NPC-criterion-of-2-dim-cube-complex}
+    Let \(X\) be a 2-dimensional cube complex. Observe that  all links are graph. The space is NPC if and only if each link is simplicial and has no loops of length 4.
+\end{proposition}
+
+\begin{lemma}
+    \label{lem:flag-simplicial-complex-NPC-Salvetti-complex}
+    If \(L\) is a flag simplicial complex, then its Salvetti complex \(X_L\) (See \cref{def:Salvetti-complex}) is NPC.
+\end{lemma}
+
+Note that the link of the only vertex in \(X_L\) may not be \(L\).
+\begin{proof}
+    A \(k\)-simplex in \(L\) gives a \(k+1\)-cube(torus) in \(X_L\). The link then is joint of \(k+1\) \(\mathbb{S}^0\)'s, which is simplicial.
+
+    TODO   Exercise: if \(L\) is flag then the link is also flag.
+\end{proof}
+
+\begin{example}[Examples of fundamental groups of NPC cube complex]
+    \begin{itemize}
+        \item Free groups.
+        \item Free abelian groups.
+        \item Fundamental groups of closed surfaces.
+        \item (Khan-Markovic, Bergeron-Wise) If \(M\) is a closed hyperbolic \(3\)-manifold, then there exists an NPC cube complex \(X\) such that \(\pi_1(X) = \pi_1(M)\). This theorem is a key ingredient of Agol's Virtual Haken theorem and Virtual Fibering theorem. 
+    \end{itemize}
+\end{example}
+
+An advantage of cube complex over simplicial complex is the hyperplanes.
+
+\begin{definition}
+    \label{def:hyperplane-of-cube-complex}
+    TODO a formalized way to define hyperplane.
+\end{definition}
+
+Hyperplanes are naturally immersed in the cube complex. For \CATz cube complex, the hyperplanes are embedded. Thus hyperplanes allows us to investigate some codimension-1 behavior of the spaces.
+
+% special vs CAT(0)?
+% CAT(0) is special 
+% most interesting case is compact special 
+% universal cover of special is CAT(0) (every NPC has CAT(0) )
+
+
+% L is a flag simplicial cplx then XL is NPC,,, how to see it's join; okayy n torus is n-1 torus product S1 so that gives join of Lk n-1 and S0
+
+% free abelian groups
+
+% introduction of RAAGs Ruth Charney
+
+% italiano
+
+% Bruno  mateli 
