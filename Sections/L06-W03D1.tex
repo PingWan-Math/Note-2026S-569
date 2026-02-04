@@ -43,7 +43,7 @@ Recall that a group is \emph{perfect} if it has trivial abelianization, i.e. \(\
     A space \(X\) is \emph{homologically \((k)\)-connected} if \(\tilde H_i (X)=0\) for \(i \leq k\)
 \end{definition}
 
-\begin{theorem}[The Bestvina-Brady Theorem]
+\begin{restatable}[The Bestvina-Brady Theorem]{theorem}{BestvinaBrady}
     \label{thm:Bestvina-Brady-finiteness-of-flag-RAAG}
     Let \(L\) be a finite flag simplicial complex.
     \begin{enumerate}
@@ -51,7 +51,7 @@ Recall that a group is \emph{perfect} if it has trivial abelianization, i.e. \(\
         \item \(K_L\) has type \(FP\) if and only if \(L\) is acyclic.
         \item \(K_L\) has type \(FP_n\) if and only if \(L\) is homologically \((n-1)\)-connected.
     \end{enumerate} 
-\end{theorem}
+\end{restatable}
 
 
 \begin{theorem}[{\cite[Theorem 4.32]{hatcher_algebraic_2001}}]
@@ -101,16 +101,11 @@ Recall that a group is \emph{perfect} if it has trivial abelianization, i.e. \(\
 
 Our goal now is to prove \cref{thm:Bestvina-Brady-finiteness-of-flag-RAAG}. We first introduce yet another finiteness property.
 
-\begin{definition}
+\begin{restatable}{definition}{TypeFH}
     \label{def:type-FHn-finiteness-property}
     A group \(G\) has type \(FH_n\) (resp. \(FH\)) if there exists a homologically \((n-1)\)-connected (resp. acyclic) complex \(X\) with a free cellular cocompact \(G\) action.
-\end{definition}
+\end{restatable}
 
-We now have four types of finiteness properties: \(F, FP, FF, FH \) (See \cref{def:finite-type-KG1,def:type-FF-FP,def:type-FHn-finiteness-property}). 
-
-We know that \(F_n \implies FH_n \implies FF_n \implies FP_n\). We know there exists a group that has type \(FP2\) but not type \(F_2\) (Recall \cref{thm:FP2-not-F2}). \cref{lem:FPn-implies-FFn} proves \(FP_n \implies FF_n\).
-
-Similarly, \(F\implies FH \implies FF \implies FP\) (The last part is \cref{thm:type-FF-implies-FP}). It's still an open question whether \(FP \implies FF\) (See \cref{q:FP-implies-FF}).
 
 \begin{lemma}
     \label{lem:FPn-implies-FFn}
@@ -128,15 +123,6 @@ Similarly, \(F\implies FH \implies FF \implies FP\) (The last part is \cref{thm:
     As a direct sum of projective modules, \(P_1 \oplus Q_0\) is also projective. We can then find \(Q_1\) such that \(Q_1 \oplus P_1\oplus Q_0 \) is a finitely generated free module. We can repeat this procedure to eventually obtain a finitely generated free resolution.
 \end{proof}
 
-We make some observations below.
-\begin{enumerate}
-    \item If there exists \(n-1\)-connected \(X\) with a free cocompact \(G\) action, then \(G\) has type \(F_n\) by turning \(\leftQ{X }{G }\) into a \(K(G,1)\). This proves \(F_n \implies FH_n\).
-    \item \(FH_n \implies FF_n\) Take the \(X\) you get, \(C_i(X)\) are finitely generated-free \(\Z G\)-modules, and this is exact because it's homologically \(n\)-connected. 
-    \item \(FH_1 \implies F_1\) because \(0\)th homology is about being connected.
-    \item \(FF_1 \implies F_1\) See \cref{lem:FF1-implies-F1}.
-\end{enumerate}
 
-In particular, we have:
-\[ F_1 \iff FF_1 \iff FH_1 \iff \text{ finitely generated}. \]
-
+We now have four types of finiteness properties: \(F, FP, FF, FH \) (See \cref{def:finite-type-KG1,def:type-FF-FP,def:type-FHn-finiteness-property}).  For a collection of relationships between these properties, see \cref{sec:collection-of-types}.
 

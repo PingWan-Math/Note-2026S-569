@@ -4,7 +4,7 @@
 
 Recall \cref{thm:finite-KG1-compact-cohomology}. In fact, to obtain the isomorphism \(H^i(G;\Z G) \cong H_c^i(\tilde X;\Z)\), we need only finite \(X^{i+1}\).
 
-\begin{definition}
+\begin{restatable}{definition}{CohomologicalDim}
     \label{def:cohomological-dimension}
     Let \(G\) be a group. The \emph{cohomological dimension} of \(G\), denoted as \(\cd{G} \) (or \(\operatorname{cd}_\Z (G)\)), is defined to be 
     \[
@@ -12,7 +12,7 @@ Recall \cref{thm:finite-KG1-compact-cohomology}. In fact, to obtain the isomorph
     \]
 
     If there's no bound on \(n\), then we say \(\cd{G} = \infty\).
-\end{definition}
+\end{restatable}
 
 Recall geometric dimension of a group (See \cref{def:finite-type-KG1}). Given a \(K(G,1)\) of dimension \(n\), we obtain a free resolution of \(\Z\) by \(\Z G\)-modules that stops in degree \(n\). Consider its cohomology: there is no cochain groups in dimension above \(n\), so the cohomology groups in dimension above \(n\) are trivial.  That is, the geometric dimension is an upper bound of the cohomological dimension.
 
@@ -33,7 +33,7 @@ In lower dimensions, \(\cd{G} =0\) if and only if \(G\) is trivial if and only i
     If \(\cd{G}=1\) then \(G\) is free.
 \end{theorem}
 
-The case at \(2\) is still an open question, though there is already a potential counterexample. 
+The case at \(\dim 2\) is still an open question, though there is already a potential counterexample. 
 TODO add reference to the potential counterexample.
 
 \begin{definition}
@@ -117,7 +117,7 @@ TODO add reference to the potential counterexample.
     \((4) \implies (1)\): \cref{cor:direct-summand-of-free-module}.
 \end{proof}
 
-\begin{definition}
+\begin{restatable}{definition}{TypeFFP}
     \label{def:type-FF-FP}
     Let \(G\) be a group.
 
@@ -128,7 +128,7 @@ TODO add reference to the potential counterexample.
     of \(\Z\) by free (resp. projective) \(\Z G\)-modules with finitely-generated \(M_i\) for \(i\leq n\).
 
     We say \(G\) has type \(FF_\infty\) (resp. \(FP_\infty\)) if \(G\) has type \(FF_n\) (resp. \(FP_n\)) for all \(n\).
-\end{definition}
+\end{restatable}
 
 \begin{theorem}
     \label{thm:type-FF-implies-FP}

@@ -67,9 +67,9 @@ Observe that all graphs are NPC, as their links are disjoint points.
 
 Note that the link of the only vertex in \(X_L\) may not be \(L\).
 \begin{proof}
-    A \(k\)-simplex in \(L\) gives a \(k+1\)-cube(torus) in \(X_L\). The link then is joint of \(k+1\) \(\mathbb{S}^0\)'s, which is simplicial.
+    A \(k\)-simplex in \(L\) gives a \((k+1)\)-cube(torus) in \(X_L\). The link then is joint of \(k+1\) \(\mathbb{S}^0\)'s, which is simplicial.
 
-    TODO   Exercise: if \(L\) is flag then the link is also flag.
+    Observe also if \(L\) is flag then the link is also flag.
 \end{proof}
 
 \begin{example}[Examples of fundamental groups of NPC cube complex]
@@ -85,7 +85,10 @@ An advantage of cube complex over simplicial complex is the hyperplanes.
 
 \begin{definition}
     \label{def:hyperplane-of-cube-complex}
-    TODO a formalized way to define hyperplane.
+    Given an \(n\)-dimensional cube \(\sigma\) in \(X\), a midcube of \(\sigma\) is an \(n-1\)-dimensional unit cube running through the barycenter of \(\sigma\) and parallel to one of the faces of \(\sigma\). 
+    
+    Two edges are parallel to each other if they are the opposite sides of one square. Let \([e]\) be the equivalent class of parallel edges.
+    The hyperplane dual to \([e]\) is the collection of midcubes which intersect edges in \([e]\).
 \end{definition}
 
 Hyperplanes are naturally immersed in the cube complex. For \CATz cube complex, the hyperplanes are embedded. Thus hyperplanes allows us to investigate some codimension-1 behavior of the spaces.
