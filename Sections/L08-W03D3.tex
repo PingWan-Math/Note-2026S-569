@@ -11,12 +11,13 @@
 \begin{example}[Examples of cube complex]
     \label{ex:cube-complex}
     \begin{itemize}
-        \item \(\mathbb{S}^1\) and any \(1\)-dimensional CW complex.
+        \item \(\mathbb{S}^1\).
+        \item Any \(1\)-dimensional CW complex.
         \item Tori.
         \item \(\mathbb{S}^2\)
         \item Closed orientable genus 2 surface \(\Sigma_2\) built out of \(8\) pentagons (glue 4 pentagons at each vertex). Note that by connecting the face center and five edge centers, we can subdivide a pentagon into 5 squares.
         \item Poincare homology sphere (See \cref{ex:Poincare-homology-sphere}).
-        \item Seifert–Weber dodecahedral space.
+        \item Seifert–Weber dodecahedral space (See \cref{rmk:Seifert-Weber-space}).
     \end{itemize}
 \end{example}
 
@@ -28,8 +29,8 @@
 \begin{example}
     \label{ex:link-of-cube-complex}
     \begin{itemize}
-        \item For a \(1\)-simplex, \(lk(v)\) is a point (that is \(epsilon\)-away from \(v\)).
-        \item For a \(2\)-simplex, \(lk(v)\) is an arc (of a circle with radius \(epsilon\)).
+        \item For a \(1\)-simplex, \(lk(v)\) is a point (that is \(\epsilon\)-away from \(v\)).
+        \item For a \(2\)-simplex, \(lk(v)\) is an arc (of a circle with radius \(\epsilon\)).
         \item Glue the two adjacent edges of \(v\) together, then \(lk(v)\) is a loop.
     \end{itemize}
 \end{example}
@@ -65,14 +66,21 @@ Observe that all graphs are NPC, as their links are disjoint points.
     If \(L\) is a flag simplicial complex, then its Salvetti complex \(X_L\) (See \cref{def:Salvetti-complex}) is NPC.
 \end{lemma}
 
-Note that the link of the only vertex in \(X_L\) may not be \(L\).
-\begin{proof}
-    A \(k\)-simplex in \(L\) gives a \((k+1)\)-cube(torus) in \(X_L\). The link then is joint of \(k+1\) \(\mathbb{S}^0\)'s, which is simplicial.
+Note that the link of the only vertex in \(X_L\) is not \(L\). We will discuss the relationship between the link and \(L\) in the future.
 
-    Observe also if \(L\) is flag then the link is also flag.
+\begin{proof}
+    We claim that each \(k\)-simplex in \(L\) corresponds to a join of \(k+1\) \(\mathbb{S}^0\) in the link. 
+
+    To see this, recall that each vertex in \(L\) gives a circle in \(X_L\), hence an \(\mathbb{S}^0\) in the link. Suppose now the claim is true for \((k-1)\)-simplex and consider a \(k\)-simplex in \(L\). Notice that \(k\)-simplex is the join of one vertex to a \((k-1)\)-simplex. In the Salvetti complex, we have a \((k+1)\)-torus, which is the direct product of a \(k\)-torus and a circle. Thus the link is the join of \(\mathbb{S}^0\) and the link of \(k\)-torus.
+
+    As a result, the link is simplicial.
+
+    If the link is not flag, then there exists an empty \((k+1)\)-torus in the Salvetti complex, which corresponds to a shell of \(k\)-simplex in \(L\). So \(L\) is not flag when the link of Salvetti complex is not flag.
+
+    TODO more detail?
 \end{proof}
 
-\begin{example}[Examples of fundamental groups of NPC cube complex]
+\begin{example}[Examples of fundamental groups of NPC cube complex] ~\\
     \begin{itemize}
         \item Free groups.
         \item Free abelian groups.

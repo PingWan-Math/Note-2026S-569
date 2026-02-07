@@ -4,6 +4,8 @@
 
 In this course we focus on \(\Z G\)-module with trivial coefficient. For coefficients other than \(\Z\), a key phrase is ``local systems of coefficients on \(X\)''.
 
+FIX talk to DG
+
 \begin{theorem}
     \label{thm:group-cohomology-cong-cellular-cohomology}
     If \(X\) is a \(K(G,1)\), then for all \(i\geq 0\), \(H^i(G;\Z) \cong H^i(X;\Z)\).
@@ -27,13 +29,13 @@ In this course we focus on \(\Z G\)-module with trivial coefficient. For coeffic
 
 \begin{lemma}[{\cite[Lemma VIII.7.4]{brown_cohomology_1982}}]
     \label{lem:compact-homomorphism-cong-ZG-homomorphism}
-    Let \(\G\) be a \(\Z G\)-module, then 
+    Let \(M\) be a \(\Z G\)-module, then 
     \[
         \Hom{M }{\Z G }{\Z G} \cong \Hom{M }{\Z }{c}.
     \]
 \end{lemma}
 \begin{proof}
-    Take \(F \in \Hom{M }{\Z G }{\Z G}\). For \(m\in M\), \(F(m)\) can be written as \(\sum_{g\in G} f_g(m) g\) where \(f_g(m)=0\) for all but finitely many \(g\).
+    Take \(F \in \Hom{M }{\Z G }{\Z}\). For \(m\in M\), \(F(m)\) can be written as \(\sum_{g\in G} f_g(m) g\) where \(f_g(m)=0\) for all but finitely many \(g\).
 
     Verify that   \(F \in \Hom{M }{\Z G }{\Z G}\) if and only if \(f_g(m) = f_1(g^{-1}m)\). So \(F\mapsto f_1\) gives a map whose inverse is:
     \[ f\mapsto \{ m\mapsto \sum_{g\in G} f(g^{-1}m) g\}. \]
@@ -51,7 +53,7 @@ In this course we focus on \(\Z G\)-module with trivial coefficient. For coeffic
 \end{definition}
 
 \begin{remark}
-    The requirement of locally compactness is to ensure that finitely supported cochains and compactly supported cochains are the same set.
+    The requirement of local compactness is to ensure that \(\d_c^i(C_c^i(Y;\Z)) \subseteq C_c^{i+1}(Y;\Z)\).
 \end{remark}
 
 \begin{theorem}
@@ -82,7 +84,7 @@ Observe that for a connected infinite CW complex \(Y\), \(H_c^0(Y;\Z )= \ker \d^
     \label{ex:compact-supported-cohomology-R}
     Let \(\R\) be cellulated as an infinite graph. Let \(v_i\) be the vertices and let \(e_i=\{v_i, v_{i+1}\}\) be the edges. 
     
-    Since \(\R\) is contractible, \(H^0_c(\R;\Z)=0\).  For \(n >2\), since there are no \(n\)-cells, \(H^n_c(\R;\Z)=0\). Consider now \(H^1_c(\R;\Z)\). Since there are no \(2\)-cells, all \(1\)-cochains are \(1\)-cocycles. Therefore \(H^1_c(\R;\Z)=C_c^1(\R;\Z)/\im \d^0_c\).
+    Since \(\R\) is non-compact, \(H^0_c(\R;\Z)=0\).  For \(n >2\), since there are no \(n\)-cells, \(H^n_c(\R;\Z)=0\). Consider now \(H^1_c(\R;\Z)\). Since there are no \(2\)-cells, all \(1\)-cochains are \(1\)-cocycles. Therefore \(H^1_c(\R;\Z)=C_c^1(\R;\Z)/\im \d^0_c\).
 
     Let \(v_i^*, e_i^*\) be the dual cells of \(e_i, v_i\) respectively. 
     Consider the augmented chain \(C_c^0(\R;\Z) \xrightarrow{\d_c^0}C_c^1(\R;\Z) \xrightarrow{\epsilon} \Z\) where \(\epsilon\) takes every \(e_i^*\) to \(1\).    

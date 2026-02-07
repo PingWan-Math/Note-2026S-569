@@ -45,7 +45,7 @@ Recall that a group is \emph{perfect} if it has trivial abelianization, i.e. \(\
 
 \begin{restatable}[The Bestvina-Brady Theorem]{theorem}{BestvinaBrady}
     \label{thm:Bestvina-Brady-finiteness-of-flag-RAAG}
-    Let \(L\) be a finite flag simplicial complex.
+    Let \(L\) be a finite flag simplicial complex. Let \(A_L\) be the associated RAAG. Let \(\phi_L : A_L \to \Z\) be as in \cref{def:flag-RAAG} and let \(K_L = \ker \phi_L\).
     \begin{enumerate}
         \item \(K_L\) is finitely presented if and only if \(L\) is simply connected.
         \item \(K_L\) has type \(FP\) if and only if \(L\) is acyclic.
@@ -67,8 +67,8 @@ Recall that a group is \emph{perfect} if it has trivial abelianization, i.e. \(\
     \label{ex:Poincare-homology-sphere}
     Take an empty dodecahedron such that opposite sides are the same up to a twist. Identify opposite sides with a \(\pi/5\) twist, then we get the \(2\)-skeleton of Poincare's homology sphere, denoted as \(X\). 
 
-    Let \(M\) be the homology sphere (which is a 3-manifold, and has \(X\) as its \(2\)-skeleton). We have  \(\tilde H_3(M) \cong \tilde H_3(\mathbb{S}^3)= \Z\), and that \(\tilde H_i(M) \cong \tilde H_i(\mathbb{S}^3)= 0\)  for all other \(i\)'s.
-
+    
+    Let \(M\) be the homology sphere built from a solid dodecahedron (which is a 3-manifold, and has \(X\) as its \(2\)-skeleton). We have  \(\tilde H_3(M) \cong \tilde H_3(\mathbb{S}^3)= \Z\), and that \(\tilde H_i(M) \cong \tilde H_i(\mathbb{S}^3)= 0\)  for all other \(i\)'s.
    
     Recall Universal coefficient: if \(H_i(M)\) is torsion free, then \(H^{i+1}(M;\Z ) \cong \Hom{H_i(M)}{\Z}{}\).
 
@@ -88,14 +88,14 @@ Recall that a group is \emph{perfect} if it has trivial abelianization, i.e. \(\
 
     This \(X\) with \(K_X\) gives the first example of a group which is acyclic but non-contractible complex.
     
-    Now subdivide the faces to (10) triangles to obtain a flag complex \(L\). This \(L\) is not simply connected, so \(K_L\) is not finitely presented. It is still acyclic, so \(K_L\) has type \(FP\). This gives the first example of a group that has \(FP\) but is not finitely presented.
+    Now subdivide each face to (10) triangles to obtain a flag complex \(L\). This \(L\) is not simply connected, so \(K_L\) is not finitely presented. It is still acyclic, so \(K_L\) has type \(FP\). This gives the first example of a group that has \(FP\) but is not finitely presented.
 \end{example}
 
-\begin{remark}
-    
-    If we do \(2\pi/5\) rotation with filled dodecahedron, then we get an infinite perfect \(\pi_1\), and it's hyperbolic.
+\begin{remark}[Seifert-Weber space]
+    \label{rmk:Seifert-Weber-space}
+    If we do \(3\pi/5\) rotation with filled dodecahedron, then we get an infinite perfect \(\pi_1\), and it's hyperbolic. The obtained space is known as Seifert-Weber space.
 
-    One can see that by seeing how there are  \(5\) pentagons around an edge, so angle argument gives the hyperbolic geometry.
+    One can see that by seeing how there are  \(5\) pentagons around an edge. An angle argument suggests the hyperbolic geometry.
 \end{remark}
 
 

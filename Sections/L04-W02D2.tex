@@ -2,13 +2,13 @@
 \section{Group Cohomology of Surface Groups}
 \label{sec:L04-W02D2}
 
-\begin{example}[Compactly supported cohomology of \(R^n\)]
+\begin{example}[Compactly supported cohomology of \(\R^n\)]
     \label{ex:compact-supported-cohomology-Rn}
     Suppose \(\R^n\) is equipped with a polyhedral decomposition. 
     Suppose each \((n-1)\)-cell is adjacent to \(2\) oriented \(n\)-cells, and the \(n-1\)-cell appears in their boundary with opposite orientation. 
-    Suppose further that each compact \(K\subseteq \R^n\) is contained in a ball. (For example, regard \(R^3\) as  the universal covering space of 3-\(torus\).)
+    Suppose further that each compact \(K\subseteq \R^n\) is contained in a ball. (For example,  \(\R^3\) is the universal covering space of a \(3\)-torus.)
 
-    Since \(\R^n\) is contractible, \(H_c^0(\R^n;\Z)=0\).
+    Since \(\R^n\) is non-compact, \(H_c^0(\R^n;\Z)=0\).
 
     For \(1\leq i <n\), take \(\eta \in C_c^i(\R^n;\Z)\) such that \(\d\eta=0\). Take a ball \(B\) such that \( \supp{\eta} \subseteq B \). We can regard \(\eta\) as an element of \(H^i(\R^n,\R^n\backslash B)\) (that is, a cochain on \(\R^n\) that vanishes on \(B\)). Recall that \(H^i(\R^n,\R^n\backslash B) \cong \tilde H^{i-1}(\R^n\backslash B) \cong \tilde H^{i-1}(\mathbb{S}^{n-1}) =0 \).
 
@@ -34,10 +34,13 @@
     \end{align*}
 \end{corollary}
 \begin{remark}
-    For non-orientable manifolds, the cohomology would be the same. What's different is the action of \(\G\) on the top cohomology \(Z\).
+    For non-orientable aspherical closed manifolds, the cohomology would be the same. What's different is the action of \(G\) on the top cohomology \(\Z\).
 \end{remark}
 
 In general, \(H^i(G;\Z G)\) is a \(\Z G\)-module. Take a free resolution \(F\). A priori, \(\Hom{F_i }{\Z G }{\Z G}\) is just an abelian group, but the right action by \(G\) satisfies  the criterion from \cref{lem:compact-homomorphism-cong-ZG-homomorphism}. Therefore, as a quotient of \(\Z G\)-module by \(\Z G\)-module, \(H^i(G;\Z G)\) is also a \(\Z G\)-module.
+
+TODO above; confusing.
+
 
 \begin{question}[Wall]
     \label{q:wall}
@@ -50,25 +53,43 @@ Notice that if such an \(M\) exists, it's unique up to homotopic equivalence by 
 
 \begin{question}[Borel conjecture]
     \label{q:borel-conjecture}
-    If \(M_1, M_2\) are closed aspherical manifolds that are homotopic equivalent to each other, are they homeomorphic to each other? 
+    If \(M_1, M_2\) are closed aspherical manifolds that are homotopy equivalent to each other, are they homeomorphic to each other? 
 \end{question}
 
 \cref{q:borel-conjecture} is known to be true for \(n=1,2,3\). Note that in general, without the assumption of aspherical, this is not true.
 
-Recall that two homotopic equivalent manifolds \(M_1, M_2\) have isomorphic fundamental groups. 
-A group theoretic version of \cref{q:borel-conjecture} is: Given a group \(G\), does it have a unique \(K(G,1)\) up to homeomorphism?
+Recall that two homotopy equivalent manifolds \(M_1, M_2\) have isomorphic fundamental groups. 
+A group theoretic version of \cref{q:borel-conjecture} is: Given a group \(G=\pi_1(M)\) where \(M\) is a closed aspherical manifold, is such an  \(M\) unique up to homeomorphism?
 
+TODO what's the difference in two questions? originally: does G have a unique KG1 up to homeomorphism?
 
 
 \begin{theorem}
     \label{thm:n-connected-gives-aspherical-cw-complex}
-    Let \(X\) be a CW complex such that \(\tilde X\) is \(k\)-connected (recall \cref{def:n-connected}) for some \(k\). Then there exists an aspherical CW complex \(Z\) such that \(Z^{k+1} = X^{k+1}\).
+    Let \(X\) be a CW complex such that \(\tilde X\) is \(k\)-connected (recall \cref{def:n-connected}) for some \(k\). Then there exists an aspherical CW complex \(Z\) such that \(Z^{(k+1)} = X^{(k+1)}\).
 \end{theorem}
 
-\cref{thm:n-connected-gives-aspherical-cw-complex} is the reason we are interested in \(1\)-connected spaces, because we can obtain a CW complex with the same fundamental group.
-
 \begin{proof}
-    Assume inductively that we've built \(Z_n\) such that \(\tilde Z_n\) is \(n\)-connected and \(Z_n^{k+1} = X^{k+1}\) (\(Z_k\) is just \(X\)). Note that every map \(f:\mathbb{S}^{n+1}\to Z_n\) is homotopic to a map with image in \(Z_n^{n+1}\). Let \(\{F_\a : \mathbb{S}^{n+1} \to Z_n^{n+1} \mid  \a \in A_n\}\) denote the homotopy classes of maps \(\mathbb{S}^{n+1}\to Z_n\). Build \(Z_{n+1}\) by gluing \((n+1)\)-cells to \(Z_n\) using  \(F_\a\)s as attaching maps.
+    Recall that the universal cover of an aspherical space is \(n\)-connected for all \(n\).
+    Assume inductively that we've built \(Z_n\) such that \(\tilde Z_n\) is \(n\)-connected and \(Z_n^{(k+1)} = X^{(k+1)}\) (\(Z_k\) is just \(X\)). Note that every map \(f:\mathbb{S}^{n+1}\to Z_n\) is homotopic to a map with image in \(Z_n^{(n+1)}\). Let \(\{F_\a : \mathbb{S}^{n+1} \to Z_n^{(n+1)} \mid  \a \in A_n\}\) denote the homotopy classes of maps \(\mathbb{S}^{n+1}\to Z_n\). Build \(Z_{n+1}\) by gluing \((n+1)\)-cells to \(Z_n\) using  \(F_\a\)s as attaching maps.
 
-    Observe that \(Z_{n+1}^{n+1} = Z_n^{n+1}\). Any \(g: \mathbb{S}^{n+1} \to Z_{n+1}\) is homotopic to some \(F_\a\), hence is null-homotopic. Therefore \(\tilde Z_{n+1}\) is \((n+1)\)-connected.
+    Observe that \(Z_{n+1}^{(n+1)} = Z_n^{(n+1)}\). Any \(g: \mathbb{S}^{n+1} \to Z_{n+1}\) is homotopic to some \(F_\a\), hence is null-homotopic. Therefore \(\tilde Z_{n+1}\) is \((n+1)\)-connected. 
 \end{proof}
+
+\cref{thm:n-connected-gives-aspherical-cw-complex} is a reason we are interested in \(1\)-connected spaces, because we can obtain an aspherical CW complex with the same fundamental group. Applying \cref{thm:n-connected-gives-aspherical-cw-complex}, we can now prove \cref{thm:fg-criterion-KG1} and \cref{thm:fp-criterion-KG1}.
+
+
+TODO check correctness
+
+\begin{proof}[Proof of \cref{thm:fg-criterion-KG1}]
+    If \(G\) is finitely generated, then there exists a presentation complex \(X\) with finite \(1\)-skeleton (a wedge of circles). Then \(\tilde X\) is \(1\)-connected. So by \cref{thm:n-connected-gives-aspherical-cw-complex} we can find an aspherical CW complex \(Z\) with \(\pi_1(Z)=G\). In particular, \(Z^{(1)}=X^{(1)}\). This proves finitely generated groups have type \(F_1\). 
+    
+    TODO the other side: just take finite 1-skeleton as generators?
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:fp-criterion-KG1}]
+    Similarly, If \(G\) is finitely presented, then there exists a finite presentation complex, whose universal cover is \(1\)-connected. \cref{thm:n-connected-gives-aspherical-cw-complex} then gives an aspherical \(Z\) with finite \(2\)-skeleton.
+\end{proof}
+
+ 
+
