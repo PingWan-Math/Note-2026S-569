@@ -1,0 +1,61 @@
+% !TeX root = ../main.tex
+\section{Proof of Bestvina-Brady Theorem}
+\label{sec:morse-theory}
+
+This section is dedicated to the proof of \cref{thm:Bestvina-Brady-finiteness-of-flag-RAAG}. 
+
+\BestvinaBrady*
+
+Let \(X_L\) be the Salvetti complex associated to \(L\).
+Realize \(\phi_L\) as \(f_*\) where \(f:X_L \to \mathbb{S}^1\) is a continuous map. Let \(\tilde f:\tilde X_L \to \R\) be the map lifted to the universal cover where vertices are mapped to integers. Let base point \(x_0\) be mapped to \(0\). Then \(K_L = \tilde f ^{-1}(0)\cap \tilde X_L^{(0)}\).
+
+Notice that \(\tilde f^{-1}(0)\) is a cellular complex on which \(K_L\) acts freely and cocompactly (\(K_L\) may not be a cube complex, nor a sub-complex of \(\tilde X_L\)).
+
+Let \(J\subseteq \R\) and let \(Z_J:= \tilde f^{-1}(J) \subseteq \tilde X_L\).
+
+\begin{lemma}
+    \label{lem:BB-Zj-expand-homptic-equiv}
+    If \(J\subseteq J'\), both \(J, J'\) are connected, and \((J'\setminus J)\cap  \mathbb{Z}  = \emptyset\), then \(Z_J \hookrightarrow Z_{J'}\) is a homotopic equivalence.
+\end{lemma}
+
+This is straightforward when we examine a single cell.
+TODO maybe more explanation
+
+\begin{definition}
+    \label{ascending-descending-link}
+    The ascending (resp. descending) link of \(x\in \tilde X_L\), , denoted as \(lk_\downarrow(x) \) (resp. \(lk_\uparrow(x)\)), is the union of links of \(x\) in cubes \(\sigma\) where \(\tilde f |_\sigma\) has a minimum (resp. maximum) at \(x\).
+\end{definition}
+
+
+\begin{lemma}
+    \label{ascending-descending-link-is-L}
+    The ascending link and the descending link are copies of \(L\).
+\end{lemma}
+\begin{proof}
+    Recall that \(lk(x)\) is join of \(\mathbb{S}^0\) (See proof of \cref{lem:flag-simplicial-complex-NPC-Salvetti-complex}). The way we arrange \(\tilde X_L\) ensures that for each \(\mathbb{S}^0\), one vertex is above \(x\) and the other is below \(x\). So each \(k\)-simplex in \(L\) corresponds to a \(k\)-simplex in \(lk_\uparrow\) and in \(lk_\downarrow\).
+\end{proof}
+
+
+\begin{lemma}
+    \label{lem:BB-Zj-expand-cross-vertex}
+    If \(J\subseteq J'\), both \(J, J'\) are closed and connected, and \((J'\setminus J)\cap  \mathbb{Z}  = \{m\}\), then \(Z_{J'}\) is homotopy equivalent to the union of \(Z_J\) and a cone of \(lk_\downarrow(x,\tilde X_L)\) for each \(x\in \tilde f^{-1}(m) \cap \tilde X_L^{(0)}\).
+\end{lemma}
+\begin{proof}
+    Let \(J_m = J'\setminus [m,m+1]\), then by \cref{lem:BB-Zj-expand-homptic-equiv} \(Z_{Jm}\sim Z_J\). 
+    Consider now the rest of \(Z_{J'}\).
+    For each such \(x\), and for each simplex \(\sigma\) with a minimum at \(x\), \(Z_{J'}\cap \sigma\) is a cone of \(lk_\downarrow(x,\sigma)\). So  \(lk_\downarrow(x,\tilde X_L)\) is homotopy equivalent to \(x\) along the cone.
+\end{proof}
+
+\begin{corollary}
+    \label{cor:asc-desc-link-homology-property}
+    Suppose \(J\subseteq J' \subseteq \R\) are both connected and non-empty. We have:
+    \begin{enumerate}
+        \item If each ascending and descending link is homologically \(n\)-connected (See \cref{def:homologically-k-connected}), then \(Z_J \hookrightarrow Z_{J'}\) induces isomorphisms on \(\tilde H_i\) for \(i\leq n\) and an epimorphism  on \(\tilde H_{n+1}\).
+        \item If each ascending and descending link is simply connected, then \(Z_J \hookrightarrow Z_{J'}\) is an isomorphism on \(\pi_1\).
+        \item If each ascending and descending link is connected, then \(Z_J \hookrightarrow Z_{J'}\) is \(\pi_1\)-surjective.
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    TODO 
+    (1) follows from Mayer–Vietoris theorem and (2,3) follows from Van-Kampen theorem.
+\end{proof}
