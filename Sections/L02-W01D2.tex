@@ -2,11 +2,6 @@
 \section{Cohomology of Groups}
 \label{sec:L02-W01D2}
 
-\begin{definition}
-    \label{def:n-connected}
-    We say a space \((Y,y_0)\) is \emph{\(n\)-connected} if \(\pi_i(Y,y_0) =0\) for all \(0\leq i \leq n\).
-\end{definition}
-
 
 Other than the trivial coefficient \(\Z\), we use also group rings to calculate the cohomology of groups to get different properties. 
 
@@ -28,8 +23,7 @@ Other than the trivial coefficient \(\Z\), we use also group rings to calculate 
 \end{example}
 
 
-
-Notice that \(g^n  =1\) for some non-trivial element \(g\in G\), i.e. \(G\) has a non-trivial torsion, then we have: 
+Notice that if  \(G\) has a non-trivial torsion, that is, \(g^n  =1\) for some non-trivial element \(g\in G\),  then we have: 
 \[ 0 = g^n -1 = (g-1)(g^{n-1}+\cdots + g+1) \]
 which implies that \(g-1\) is a non-zero zero-divisor. The other direction of this fact is an open question.
 
@@ -52,7 +46,7 @@ Typically \(G\) is not abelian, so \(\Z G\) is not a commutative ring. Left and 
     \label{def:resolution-free-ZG-module}
     A free resolution of \(\Z\) (the trivial \(\Z G\)-module) by free \(\Z G\)-modules is a resolution
     \[ \cdots\to F_1 \to F_0 \xrightarrow{\epsilon} \Z \to 0\]
-    that is exact, and every \(F_i\) is a free \(\Z G\)-module (i.e. \((\Z G)^n\) for some \(n\)).
+    that is exact, and every \(F_i\) is a free \(\Z G\)-module (i.e. \(F_i = (\Z G)^n\) for some \(n\)).
 \end{definition}
 
 
@@ -80,7 +74,7 @@ Sometimes we also use resolutions by projective \(\Z G\)-modules (See \cref{def:
 
 \begin{definition}[Cohomology of group]
     \label{def:cohomology-of-group}
-    Let \(M\) be a left \(\Z G\)-module. Let \(F = \{(F_i, d_i)\}\) be a free resolution of \(\Z\). We truncate \(F\) to get a (non-exact) complex:
+    Let \(M\) be a left \(\Z G\)-module. Let \(F = \{(F_i, d_i)\}\) be a free resolution of \(\Z\). We truncate \(F\)  to get a complex (that is non-exact at $F_0$):
    
      \[ 
        \cdots \rightarrow F_i \xrightarrow{d_i} F_{i-1} \xrightarrow{d_{i-1}}\cdots \xrightarrow{d_1} F_0 \to 0 .
@@ -91,7 +85,7 @@ Sometimes we also use resolutions by projective \(\Z G\)-modules (See \cref{def:
        \cdots \leftarrow F^i \xleftarrow{d^{i-1}} F^{i-1} \xleftarrow{d^{i-2}}\cdots \xleftarrow{d^0} F^0 \xleftarrow{} 0 .
     \]
 
-    Here \(d^{i} : \Hom{F^i}{M}{\Z G} \to \Hom{F^{i+1}}{M}{\Z G} \) is defined by \(d^i(f) = f\circ d_{i+1}\).
+    Here \(d^{i} : \Hom{F_i}{M}{\Z G} \to \Hom{F_{i+1}}{M}{\Z G} \) is defined by \(d^i(f) = f\circ d_{i+1}\).
 
     The \emph{cohomology of \(G\)} with coefficients in \(M\), denoted as \(H^*(G;M)\), is the homology of the complex above: 
     \[ H^i(G;M) = \ker d^i/\im d^{i-1} .\]
@@ -118,7 +112,7 @@ Since free resolutions  are chain homotopic, \(H^*(G;M)\) is independent of the 
     \]
 \end{example}
 
-Apply \(\Hom{\_ }{\Z }{\Z G}\)to the resolution. Since \(G\) acts on \(\Z\) trivially,  any  \(f\in \Hom{\Z G }{\Z }{\Z G}\) has to map all \(g \in G\) to a constant. Therefore, \(\Hom{\Z G }{\Z }{\Z G} cong \Z\). Thus the cochain complex we obtained is:
+Apply \(\Hom{\_ }{\Z }{\Z G}\)to the resolution. Since \(G\) acts on \(\Z\) trivially,  any  \(f\in \Hom{\Z G }{\Z }{\Z G}\) has to map all \(g \in G\) to a constant. Therefore, \(\Hom{\Z G }{\Z }{\Z G} \cong \Z\). Thus the cochain complex we obtained is:
 \[
     \cdots \xleftarrow{\cdot n} \Z \xleftarrow{\cdot 0} \Z  \xleftarrow{\cdot n} \Z \xleftarrow{\cdot 0} \Z \leftarrow 0.
 \]
@@ -140,7 +134,7 @@ We conclude that
     If \(X\) is an \(n\)-dimensional \(K(G,1)\) and \(M\) is any \(\Z G\)-module, then \(\forall m > n\), \(H^m(G;M) =0\).
 \end{proposition}
 \begin{proof}
-    The free resolution arising from \(X\) is trivial for \(m>n\).
+    The free resolution arising from \(X\) (See \cref{rmk:free-resolution-arises-naturally}) is trivial for \(m>n\).
 \end{proof}
 
 \begin{corollary}
@@ -153,6 +147,7 @@ We are now ready to prove \cref{thm:torsion-criterion-KG1}. Recall the statement
 \TorsionCriterion*
 
 \begin{proof}
+\label{proof:torsion-criterion-KG1}
     Let \(X\) be a \(K(G,1)\). For any subgroup \(H\leq G\), let \(X^H\) be the cover of \(X\) corresponding to \(H\). Then \(X^H\) is a \(K(H,1)\). Observe that \(X\) and \(X^H\) have the same dimension.
 
     If \(G\) has non-trivial torsion, then there exists \(\Z/n\Z \leq G\) with \(n\geq 2\). Let \(H = \Z /n \Z\). By \cref{cor:KG1-ZnZ-infinite-dimensional}, \(X^H\) is infinite-dimensional, hence so is \(X\).
